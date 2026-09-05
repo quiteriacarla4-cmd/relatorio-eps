@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -332,7 +334,13 @@ audio{
     color:#fff;
     border:4px solid #eab308;
     border-radius:18px 18px 42px 42px;
-    clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%);
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 72%,
+        50% 100%,
+        0 72%
+    );
     background:#050505;
     font-weight:900;
     letter-spacing:2px;
@@ -421,7 +429,7 @@ audio{
 }
 
 /* =========================
-   CONTEÚDO DO RELATÓRIO
+   CONTEÚDO
 ========================= */
 
 .relatorio-conteudo{
@@ -505,7 +513,7 @@ audio{
 }
 
 /* =========================
-   ÁUDIO NO RELATÓRIO
+   ÁUDIO DO RELATÓRIO
 ========================= */
 
 .relatorio-audio{
@@ -520,6 +528,10 @@ audio{
     color:#f5b400;
     margin-bottom:8px;
 }
+
+/* =========================
+   BOTÕES DO RELATÓRIO
+========================= */
 
 #relatorio .acoes-relatorio{
     position:relative;
@@ -711,6 +723,7 @@ audio{
 }
 
 </style>
+
 </head>
 
 <body>
@@ -723,6 +736,11 @@ RELATÓRIO DE PROVA —
 </h1>
 
 </header>
+
+
+<!-- =========================
+     MENU
+========================= -->
 
 <div class="menu">
 
@@ -744,57 +762,97 @@ RELATÓRIO DE PROVA —
 
 </div>
 
+
 <div class="container">
 
+
 <!-- =========================
-     COMO FAZER
+     ENSINO
 ========================= -->
 
 <section id="ensino" class="card">
 
-<h2>📚 Como fazer um relatório</h2>
+<h2>
+📚 Como fazer um relatório
+</h2>
+
 
 <div class="passo">
-<strong>1 — Identifique a ocorrência</strong>
+
+<strong>
+1 — Identifique a ocorrência
+</strong>
+
 <p>
 Informe a data, horário e outras informações importantes.
 </p>
+
 </div>
 
+
 <div class="passo">
-<strong>2 — Informe o QRA</strong>
+
+<strong>
+2 — Informe o QRA
+</strong>
+
 <p>
 Coloque a identificação ou nome da pessoa envolvida.
 </p>
+
 </div>
 
+
 <div class="passo">
-<strong>3 — Conte o que aconteceu</strong>
+
+<strong>
+3 — Conte o que aconteceu
+</strong>
+
 <p>
 Você pode escrever ou simplesmente falar usando o microfone.
 </p>
+
 </div>
 
+
 <div class="passo">
-<strong>4 — Grave o áudio</strong>
+
+<strong>
+4 — Grave o áudio
+</strong>
+
 <p>
 Clique em "PERMITIR MICROFONE" e depois em "INICIAR GRAVAÇÃO".
 Fale normalmente explicando tudo o que aconteceu.
 </p>
+
 </div>
 
+
 <div class="passo">
-<strong>5 — Gere com IA</strong>
+
+<strong>
+5 — Gere com IA
+</strong>
+
 <p>
 O sistema organiza o texto obtido através da sua fala para ajudar na criação do relatório.
 </p>
+
 </div>
 
+
 <div class="passo">
-<strong>6 — Revise e salve</strong>
+
+<strong>
+6 — Revise e salve
+</strong>
+
 <p>
 Confira o relatório e use a opção de imprimir para salvar como PDF.
 </p>
+
 </div>
 
 </section>
@@ -806,50 +864,98 @@ Confira o relatório e use a opção de imprimir para salvar como PDF.
 
 <section id="formulario" class="card">
 
-<h2>📝 Criar relatório</h2>
+<h2>
+📝 Criar relatório
+</h2>
+
 
 <div class="grid">
 
-<div class="campo">
-<label>Data</label>
-<input type="date" id="data">
-</div>
 
 <div class="campo">
-<label>Início da prova</label>
-<input type="time" id="inicio">
+
+<label>
+Data
+</label>
+
+<input
+type="date"
+id="data">
+
 </div>
 
-<div class="campo">
-<label>Fim da prova</label>
-<input type="time" id="fim">
-</div>
 
 <div class="campo">
-<label>QRA</label>
+
+<label>
+Início da prova
+</label>
+
+<input
+type="time"
+id="inicio">
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Fim da prova
+</label>
+
+<input
+type="time"
+id="fim">
+
+</div>
+
+
+<div class="campo">
+
+<label>
+QRA
+</label>
+
 <input
 type="text"
 id="qra"
 placeholder="Ex: Dk Zangado">
+
 </div>
 
+
 <div class="campo">
-<label>Responsável pela prova</label>
+
+<label>
+Responsável pela prova
+</label>
+
 <input
 type="text"
 id="responsavelProva">
+
 </div>
 
+
 <div class="campo">
-<label>Responsável pelo relatório</label>
+
+<label>
+Responsável pelo relatório
+</label>
+
 <input
 type="text"
 id="responsavelRelatorio">
-</div>
 
 </div>
+
+
+</div>
+
 
 <br>
+
 
 <div class="campo">
 
@@ -870,20 +976,26 @@ placeholder="Você pode escrever aqui ou usar o microfone..."></textarea>
 
 <div class="audio-box">
 
-<h2>🎙️ Falar para criar o relatório</h2>
+<h2>
+🎙️ Falar para criar o relatório
+</h2>
 
 <p>
 Para usar esta função, permita que o navegador acesse o microfone do seu dispositivo.
 </p>
+
 
 <div id="permissaoMicrofone">
 
 🔐 <strong>Permissão necessária</strong>
 
 <p style="margin-top:8px;color:#ccc;">
+
 Clique em "PERMITIR MICROFONE".
 O navegador irá perguntar se este site pode usar seu microfone.
+
 </p>
+
 
 <button
 class="btn btn-amarelo"
@@ -897,7 +1009,9 @@ onclick="pedirPermissaoMicrofone()">
 
 
 <div id="statusAudio">
+
 Pronto para gravar.
+
 </div>
 
 
@@ -943,7 +1057,9 @@ onclick="gerarRelatorioIA()">
 id="iaStatus"
 class="ia-status">
 
-<strong>🤖 IA:</strong>
+<strong>
+🤖 IA:
+</strong>
 
 <span id="iaTexto">
 Aguardando informações...
@@ -1008,7 +1124,7 @@ onclick="limparTudo()">
 
 
 <!-- =========================
-     RELATÓRIO
+     RELATÓRIO FINAL
 ========================= -->
 
 <section id="relatorio">
@@ -1017,6 +1133,7 @@ onclick="limparTudo()">
 
 
 <div class="relatorio-cabecalho">
+
 
 <div
 class="eps-logo"
@@ -1047,7 +1164,9 @@ RELATÓRIO DE PROVA —
 </div>
 
 
-<!-- INFORMAÇÕES -->
+<!-- =========================
+     INFORMAÇÕES
+========================= -->
 
 <div class="relatorio-info">
 
@@ -1121,7 +1240,9 @@ id="rFim">
 </div>
 
 
-<!-- CONTEÚDO -->
+<!-- =========================
+     CONTEÚDO
+========================= -->
 
 <div class="relatorio-conteudo">
 
@@ -1205,7 +1326,9 @@ RESPONSÁVEL PELO RELATÓRIO:
 </div>
 
 
-<!-- EVIDÊNCIA -->
+<!-- =========================
+     EVIDÊNCIA
+========================= -->
 
 <div
 class="relatorio-evidencia"
@@ -1222,7 +1345,9 @@ alt="Evidência do relatório">
 </div>
 
 
-<!-- ÁUDIO -->
+<!-- =========================
+     ÁUDIO
+========================= -->
 
 <div
 class="relatorio-audio"
@@ -1241,9 +1366,12 @@ style="width:100%;">
 </div>
 
 
-<!-- BOTÕES -->
+<!-- =========================
+     AÇÕES
+========================= -->
 
 <div class="acoes-relatorio">
+
 
 <button
 class="btn btn-amarelo"
@@ -1261,6 +1389,7 @@ onclick="mostrar('formulario')">
 ✏️ EDITAR RELATÓRIO
 
 </button>
+
 
 </div>
 
@@ -1298,22 +1427,29 @@ let textoAntesDaTranscricao = "";
 
 
 /* =====================================================
-   TROCAR SEÇÕES
+   MOSTRAR SEÇÃO
 ===================================================== */
 
 function mostrar(secao){
 
-    document.getElementById("ensino").style.display = "none";
+    document.getElementById("ensino").style.display =
+        "none";
 
-    document.getElementById("formulario").style.display = "none";
+    document.getElementById("formulario").style.display =
+        "none";
 
-    document.getElementById("relatorio").style.display = "none";
+    document.getElementById("relatorio").style.display =
+        "none";
 
-    const elemento = document.getElementById(secao);
+
+    const elemento =
+        document.getElementById(secao);
+
 
     if(elemento){
 
-        elemento.style.display = "block";
+        elemento.style.display =
+            "block";
 
     }
 
@@ -1328,20 +1464,23 @@ const hoje = new Date();
 
 const ano = hoje.getFullYear();
 
-const mes = String(
-    hoje.getMonth()+1
-).padStart(2,"0");
+const mes =
+    String(
+        hoje.getMonth()+1
+    ).padStart(2,"0");
 
-const dia = String(
-    hoje.getDate()
-).padStart(2,"0");
+const dia =
+    String(
+        hoje.getDate()
+    ).padStart(2,"0");
+
 
 document.getElementById("data").value =
     ano + "-" + mes + "-" + dia;
 
 
 /* =====================================================
-   IMAGEM
+   CARREGAR IMAGEM
 ===================================================== */
 
 function carregarImagem(event){
@@ -1349,25 +1488,36 @@ function carregarImagem(event){
     const arquivo =
         event.target.files[0];
 
+
     if(!arquivo){
+
         return;
+
     }
+
 
     const leitor =
         new FileReader();
 
-    leitor.onload = function(e){
 
-        const img =
-            document.getElementById("previewImagem");
+    leitor.onload =
+        function(e){
 
-        img.src =
-            e.target.result;
+            const img =
+                document.getElementById(
+                    "previewImagem"
+                );
 
-        img.style.display =
-            "block";
 
-    };
+            img.src =
+                e.target.result;
+
+
+            img.style.display =
+                "block";
+
+        };
+
 
     leitor.readAsDataURL(arquivo);
 
@@ -1375,7 +1525,7 @@ function carregarImagem(event){
 
 
 /* =====================================================
-   PERMISSÃO DO MICROFONE
+   PERMISSÃO MICROFONE
 ===================================================== */
 
 async function pedirPermissaoMicrofone(){
@@ -1410,20 +1560,25 @@ async function pedirPermissaoMicrofone(){
 
         stream
             .getTracks()
-            .forEach(track => track.stop());
+            .forEach(
+                track => track.stop()
+            );
 
 
-        microfonePermitido = true;
+        microfonePermitido =
+            true;
 
 
         document.getElementById(
             "permissaoMicrofone"
-        ).style.display = "none";
+        ).style.display =
+            "none";
 
 
         document.getElementById(
             "btnGravar"
-        ).disabled = false;
+        ).disabled =
+            false;
 
 
         document.getElementById(
@@ -1440,7 +1595,8 @@ async function pedirPermissaoMicrofone(){
         );
 
 
-        microfonePermitido = false;
+        microfonePermitido =
+            false;
 
 
         document.getElementById(
@@ -1471,6 +1627,7 @@ async function iniciarGravacao(){
         if(!microfonePermitido){
 
             await pedirPermissaoMicrofone();
+
 
             if(!microfonePermitido){
 
@@ -1528,7 +1685,9 @@ async function iniciarGravacao(){
             tipoAudio
             ? new MediaRecorder(
                 stream,
-                {mimeType:tipoAudio}
+                {
+                    mimeType:tipoAudio
+                }
             )
             : new MediaRecorder(stream);
 
@@ -1571,7 +1730,9 @@ async function iniciarGravacao(){
 
 
                 audioURL =
-                    URL.createObjectURL(blob);
+                    URL.createObjectURL(
+                        blob
+                    );
 
 
                 document.getElementById(
@@ -1594,12 +1755,15 @@ async function iniciarGravacao(){
 
                 document.getElementById(
                     "btnGravar"
-                ).disabled = false;
+                ).disabled =
+                    false;
 
 
                 stream
                     .getTracks()
-                    .forEach(track => track.stop());
+                    .forEach(
+                        track => track.stop()
+                    );
 
             };
 
@@ -1609,7 +1773,8 @@ async function iniciarGravacao(){
 
         document.getElementById(
             "btnGravar"
-        ).disabled = true;
+        ).disabled =
+            true;
 
 
         document.getElementById(
@@ -1631,7 +1796,8 @@ async function iniciarGravacao(){
 
         document.getElementById(
             "btnGravar"
-        ).disabled = false;
+        ).disabled =
+            false;
 
 
         document.getElementById(
@@ -1651,7 +1817,7 @@ async function iniciarGravacao(){
 
 
 /* =====================================================
-   SALVAR TRANSCRIÇÃO FINAL
+   SALVAR TRANSCRIÇÃO
 ===================================================== */
 
 function salvarTranscricaoFinal(){
@@ -1700,16 +1866,21 @@ function pararGravacao(){
     salvarTranscricaoFinal();
 
 
-    deveReconhecer = false;
+    deveReconhecer =
+        false;
 
-    reconhecimentoAtivo = false;
+
+    reconhecimentoAtivo =
+        false;
 
 
     if(reconhecimento){
 
         try{
 
-            reconhecimento.onend = null;
+            reconhecimento.onend =
+                null;
+
 
             reconhecimento.stop();
 
@@ -1781,9 +1952,12 @@ function iniciarReconhecimento(){
     }
 
 
-    deveReconhecer = true;
+    deveReconhecer =
+        true;
 
-    reconhecimentoAtivo = false;
+
+    reconhecimentoAtivo =
+        false;
 
 
     const campo =
@@ -1796,7 +1970,8 @@ function iniciarReconhecimento(){
         campo.value.trim();
 
 
-    textoTranscricaoFinal = "";
+    textoTranscricaoFinal =
+        "";
 
 
     reconhecimento =
@@ -1822,7 +1997,8 @@ function iniciarReconhecimento(){
     reconhecimento.onstart =
         function(){
 
-            reconhecimentoAtivo = true;
+            reconhecimentoAtivo =
+                true;
 
 
             document.getElementById(
@@ -1836,9 +2012,12 @@ function iniciarReconhecimento(){
     reconhecimento.onresult =
         function(event){
 
-            let finais = "";
+            let finais =
+                "";
 
-            let parcial = "";
+
+            let parcial =
+                "";
 
 
             for(
@@ -1973,7 +2152,7 @@ function iniciarReconhecimento(){
                 document.getElementById(
                     "statusAudio"
                 ).innerText =
-                    "⚠️ O reconhecimento de voz não recebeu permissão. O áudio continua separado.";
+                    "⚠️ O reconhecimento de voz não recebeu permissão. O áudio continua gravado.";
 
             }
 
@@ -1983,7 +2162,8 @@ function iniciarReconhecimento(){
     reconhecimento.onend =
         function(){
 
-            reconhecimentoAtivo = false;
+            reconhecimentoAtivo =
+                false;
 
 
             if(!deveReconhecer){
@@ -2067,9 +2247,8 @@ function gerarRelatorioIA(){
 
 
     /*
-       CORREÇÃO:
-       Se a transcrição estiver guardada,
-       usa ela.
+       Se existe uma transcrição final,
+       utiliza a transcrição.
     */
 
     if(
@@ -2088,26 +2267,10 @@ function gerarRelatorioIA(){
 
 
     /*
-       CORREÇÃO PRINCIPAL:
-       Mesmo que o áudio tenha sido gravado
-       mas não tenha sido transcrito,
-       o relatório poderá ser criado.
+       IMPORTANTE:
+       NÃO colocamos mais nenhuma frase
+       automática quando existe apenas áudio.
     */
-
-    if(
-        !observacao &&
-        audioURL
-    ){
-
-        observacao =
-            "Ocorrência registrada por meio de áudio. " +
-            "O áudio gravado está anexado ao relatório.";
-
-
-        campo.value =
-            observacao;
-
-    }
 
 
     if(!observacao){
@@ -2258,7 +2421,7 @@ function gerarRelatorio(){
 
 
     /*
-       Tenta recuperar a transcrição.
+       Recupera a transcrição caso necessário.
     */
 
     if(
@@ -2279,26 +2442,9 @@ function gerarRelatorio(){
 
 
     /*
-       Se existe áudio mas não existe texto,
-       coloca uma informação no relatório.
+       NÃO adicionamos frase automática
+       quando existe somente o áudio.
     */
-
-    if(
-        !obs &&
-        audioURL
-    ){
-
-        obs =
-            "Ocorrência registrada por meio de áudio. " +
-            "O áudio gravado está anexado ao relatório.";
-
-
-        document.getElementById(
-            "observacao"
-        ).value =
-            obs;
-
-    }
 
 
     if(!qra){
@@ -2357,7 +2503,9 @@ function gerarRelatorio(){
         "Não informado";
 
 
-    /* IMAGEM */
+    /* =========================
+       IMAGEM
+    ========================= */
 
     const imagem =
         document.getElementById(
@@ -2395,7 +2543,9 @@ function gerarRelatorio(){
     }
 
 
-    /* ÁUDIO */
+    /* =========================
+       ÁUDIO
+    ========================= */
 
     if(audioURL){
 
@@ -2457,14 +2607,17 @@ function formatarData(data){
 
 function limparTudo(){
 
-    deveReconhecer = false;
+    deveReconhecer =
+        false;
 
 
     if(reconhecimento){
 
         try{
 
-            reconhecimento.onend = null;
+            reconhecimento.onend =
+                null;
+
 
             reconhecimento.stop();
 
@@ -2529,7 +2682,8 @@ function limparTudo(){
 
     document.getElementById(
         "previewImagem"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
@@ -2578,20 +2732,29 @@ function limparTudo(){
     }
 
 
-    audioURL = null;
-
-    microfonePermitido = false;
-
-    reconhecimento = null;
-
-    reconhecimentoAtivo = false;
-
-    textoTranscricaoFinal = "";
-
-    textoAntesDaTranscricao = "";
+    audioURL =
+        null;
 
 
-    /* coloca a data de hoje novamente */
+    microfonePermitido =
+        false;
+
+
+    reconhecimento =
+        null;
+
+
+    reconhecimentoAtivo =
+        false;
+
+
+    textoTranscricaoFinal =
+        "";
+
+
+    textoAntesDaTranscricao =
+        "";
+
 
     document.getElementById(
         "data"
@@ -2634,7 +2797,7 @@ async function verificarMicrofone(){
 
 
 /* =====================================================
-   INICIAR
+   INICIAR APP
 ===================================================== */
 
 verificarMicrofone();
@@ -2644,4 +2807,5 @@ mostrar("ensino");
 </script>
 
 </body>
+
 </html>
