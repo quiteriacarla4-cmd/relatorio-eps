@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Relatório de Prova - E.P.S</title>
+
+<style>
+
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#050505;
+    color:white;
+    min-height:100vh;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header{
+    padding:25px 15px;
+    text-align:center;
+    background:#050505;
+    border-bottom:2px solid #eab308;
+}
+
+header h1{
+    font-size:36px;
+    font-weight:900;
+}
+
+header span{
+    color:#f5b400;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menu{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    padding:15px;
+    background:#101010;
+    border-bottom:1px solid #333;
+}
+
+.menu button{
+    background:#171717;
+    color:white;
+    border:1px solid #eab308;
+    padding:13px 18px;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.menu button:hover{
+    background:#eab308;
+    color:#000;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:95%;
+    max-width:1100px;
+    margin:25px auto;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+    background:#0d0d0d;
+    border:1px solid #444;
+    border-radius:12px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 0 15px rgba(0,0,0,.7);
+}
+
+.card h2{
+    color:#f5b400;
+    margin-bottom:20px;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.campo{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.campo label{
+    color:#f5b400;
+    font-weight:bold;
+}
+
+input,
+textarea{
+    width:100%;
+    background:#171717;
+    color:white;
+    border:1px solid #555;
+    border-radius:7px;
+    padding:13px;
+    font-size:15px;
+    outline:none;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#f5b400;
+}
+
+textarea{
+    min-height:140px;
+    resize:vertical;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.btn{
+    border:none;
+    border-radius:8px;
+    padding:13px 18px;
+    margin-top:15px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.btn-amarelo{
+    background:#eab308;
+    color:#000;
+}
+
+.btn-verde{
+    background:#15803d;
+    color:white;
+}
+
+.btn-vermelho{
+    background:#b91c1c;
+    color:white;
+}
+
+.btn-cinza{
+    background:#333;
+    color:white;
+}
+
+.btn-azul{
+    background:#2563eb;
+    color:white;
+}
+
+.btn:hover{
+    opacity:.85;
+}
+
+.btn:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+/* =========================
+   ÁUDIO
+========================= */
+
+.audio-box{
+    border:1px solid #444;
+    border-radius:10px;
+    padding:25px;
+    margin-top:25px;
+    text-align:center;
+    background:#111;
+}
+
+.audio-box h2{
+    color:#f5b400;
+}
+
+.audio-box p{
+    margin:10px 0;
+    color:#ccc;
+}
+
+#statusAudio{
+    margin:18px;
+    color:#f5b400;
+    font-weight:bold;
+}
+
+audio{
+    width:100%;
+    margin-top:15px;
+}
+
+#permissaoMicrofone{
+    background:#171717;
+    border:1px solid #eab308;
+    border-radius:8px;
+    padding:15px;
+    margin:15px 0;
+}
+
+/* =========================
+   IMAGEM
+========================= */
+
+.preview{
+    text-align:center;
+    margin-top:20px;
+}
+
+.preview img{
+    max-width:100%;
+    max-height:500px;
+    border:2px solid #eab308;
+    border-radius:10px;
+}
+
+/* =========================
+   ENSINO
+========================= */
+
+.passo{
+    background:#151515;
+    border-left:4px solid #eab308;
+    padding:18px;
+    margin:15px 0;
+    border-radius:5px;
+}
+
+.passo strong{
+    color:#f5b400;
+    display:block;
+    margin-bottom:7px;
+}
+
+/* =========================
+   RELATÓRIO
+========================= */
+
+#relatorio{
+    display:none;
+    background:#050505;
+    border:2px solid #eab308;
+    padding:25px;
+}
+
+.relatorio-topo{
+    text-align:center;
+    padding-bottom:20px;
+    border-bottom:2px solid #eab308;
+    margin-bottom:20px;
+}
+
+.relatorio-topo h1{
+    font-size:34px;
+}
+
+.relatorio-topo span{
+    color:#f5b400;
+}
+
+.info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border:1px solid #444;
+    margin-bottom:20px;
+}
+
+.info div{
+    padding:17px;
+    border-right:1px solid #444;
+}
+
+.info strong{
+    display:block;
+    color:#f5b400;
+    margin-bottom:7px;
+}
+
+.bloco{
+    border-top:1px solid #eab308;
+    padding:20px 5px;
+}
+
+.bloco h3{
+    color:#f5b400;
+    margin-bottom:10px;
+}
+
+.bloco p{
+    line-height:1.6;
+    white-space:pre-wrap;
+}
+
+#imagemRelatorio{
+    display:block;
+    max-width:100%;
+    max-height:550px;
+    margin:auto;
+    border:2px solid #eab308;
+    border-radius:8px;
+}
+
+/* =========================
+   IA
+========================= */
+
+.ia-status{
+    margin-top:15px;
+    padding:15px;
+    background:#171717;
+    border:1px solid #444;
+    border-radius:8px;
+    display:none;
+}
+
+.ia-status strong{
+    color:#f5b400;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:700px){
+
+    header h1{
+        font-size:24px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .info{
+        grid-template-columns:1fr;
+    }
+
+    .info div{
+        border-right:none;
+        border-bottom:1px solid #444;
+    }
+
+    .menu button{
+        width:100%;
+    }
+
+}
+
+/* =========================
+   IMPRESSÃO
+========================= */
+
+@media print{
+
+    body{
+        background:white;
+        color:black;
+    }
+
+    header,
+    .menu,
+    .card{
+        display:none !important;
+    }
+
+    #relatorio{
+        display:block !important;
+        color:black;
+        background:white;
+        border:2px solid black;
+    }
+
+    .relatorio-topo span,
+    .bloco h3,
+    .info strong{
+        color:black;
+    }
+
+    .bloco{
+        border-color:#000;
+    }
+
+}
+
+
+/* =========================================================
+   NOVO MODELO DO RELATÓRIO FINAL — baseado na referência E.P.S
+   ========================================================= */
+
+#relatorio{
+    display:none;
+    width:100%;
+    max-width:1050px;
+    margin:25px auto;
+    padding:0;
+    background:#050505;
+    color:#fff;
+    border:0;
+    box-shadow:none;
+}
+
+.relatorio-page{
+    position:relative;
+    overflow:hidden;
+    background:#050505;
+    border:2px solid #eab308;
+    padding:18px 24px 24px;
+    box-shadow:0 0 18px rgba(0,0,0,.65);
+}
+
+.relatorio-page::before{
+    content:"";
+    position:absolute;
+    left:14px;
+    right:14px;
+    top:14px;
+    bottom:14px;
+    border:1px solid #eab308;
+    pointer-events:none;
+    opacity:.95;
+}
+
+.relatorio-cabecalho{
+    position:relative;
+    z-index:1;
+    display:flex;
+    align-items:center;
+    gap:28px;
+    min-height:145px;
+    padding:10px 16px 18px;
+    border-bottom:2px solid #eab308;
+}
+
+.eps-logo{
+    width:120px;
+    height:125px;
+    flex:0 0 120px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding-top:18px;
+    color:#fff;
+    border:4px solid #eab308;
+    border-radius:18px 18px 42px 42px;
+    clip-path:polygon(0 0,100% 0,100% 72%,50% 100%,0 72%);
+    background:#050505;
+    font-weight:900;
+    letter-spacing:2px;
+}
+
+.eps-logo .eps-text{
+    font-size:28px;
+    line-height:1;
+}
+
+.eps-logo .eps-wing{
+    color:#eab308;
+    font-size:36px;
+    line-height:1;
+    margin-top:9px;
+}
+
+.eps-logo .eps-star{
+    color:#eab308;
+    font-size:23px;
+    line-height:1;
+    margin-top:2px;
+}
+
+.relatorio-titulo{
+    flex:1;
+    text-align:center;
+    font-size:48px;
+    line-height:1;
+    font-weight:900;
+    letter-spacing:1px;
+    white-space:nowrap;
+}
+
+.relatorio-titulo span{
+    color:#f5b400;
+}
+
+.relatorio-info{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    margin:12px 0;
+    border:2px solid #333;
+    border-radius:12px;
+    overflow:hidden;
+    background:#050505;
+}
+
+.relatorio-info-item{
+    min-height:78px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:12px 24px;
+    border-right:1px solid #555;
+}
+
+.relatorio-info-item:last-child{
+    border-right:0;
+}
+
+.info-icone{
+    font-size:39px;
+    filter:grayscale(1) brightness(1.6);
+    line-height:1;
+}
+
+.info-label{
+    color:#f5b400;
+    font-size:17px;
+    font-weight:700;
+    display:block;
+    margin-bottom:4px;
+}
+
+.info-valor{
+    color:#fff;
+    font-size:26px;
+    font-weight:500;
+}
+
+.relatorio-conteudo{
+    position:relative;
+    z-index:1;
+    border:2px solid #333;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.relatorio-linha{
+    display:grid;
+    grid-template-columns:112px 1fr;
+    min-height:110px;
+    border-bottom:1px solid #eab308;
+}
+
+.relatorio-linha:last-child{
+    border-bottom:0;
+}
+
+.relatorio-icone{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:15px 12px 15px 20px;
+    width:78px;
+    height:78px;
+    border:2px solid #444;
+    border-radius:50%;
+    background:#050505;
+    font-size:39px;
+}
+
+.relatorio-campo{
+    padding:19px 24px 18px 6px;
+}
+
+.relatorio-campo h3{
+    color:#f5b400;
+    font-size:25px;
+    margin:0 0 7px;
+    font-weight:800;
+}
+
+.relatorio-campo p{
+    color:#f4f4f4;
+    font-size:23px;
+    line-height:1.35;
+    margin:0;
+    white-space:pre-wrap;
+}
+
+.relatorio-evidencia{
+    position:relative;
+    z-index:1;
+    margin-top:10px;
+    padding:10px 0 0;
+}
+
+.relatorio-evidencia h3{
+    color:#f5b400;
+    font-size:24px;
+    margin:0 0 10px;
+}
+
+#imagemRelatorio{
+    display:block !important;
+    width:auto !important;
+    max-width:100% !important;
+    max-height:650px;
+    height:auto;
+    object-fit:contain;
+    margin:0 auto !important;
+    border:2px solid #eab308;
+    border-radius:0;
+    background:#050505;
+}
+
+.relatorio-evidencia{
+    display:block !important;
+    width:100% !important;
+    clear:both !important;
+    float:none !important;
+    position:relative;
+    z-index:1;
+    margin-top:10px;
+    padding:10px 0 0;
+    break-inside:avoid;
+    page-break-inside:avoid;
+}
+
+.relatorio-evidencia h3{
+    display:block !important;
+    width:100% !important;
+    clear:both !important;
+}
+
+.relatorio-audio{
+    position:relative;
+    z-index:1;
+    margin-top:15px;
+    padding-top:14px;
+    border-top:1px solid #eab308;
+}
+
+.relatorio-audio h3{
+    color:#f5b400;
+    margin-bottom:8px;
+}
+
+#relatorio .acoes-relatorio{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding-top:18px;
+}
+
+#relatorio .acoes-relatorio .btn{
+    margin:5px;
+}
+
+@media(max-width:800px){
+    .relatorio-page{padding:12px 10px 18px;}
+    .relatorio-cabecalho{gap:12px; min-height:105px; padding:8px 8px 14px;}
+    .eps-logo{width:80px;height:88px;flex-basis:80px;border-width:3px;padding-top:12px;}
+    .eps-logo .eps-text{font-size:19px;}
+    .eps-logo .eps-wing{font-size:25px;margin-top:5px;}
+    .eps-logo .eps-star{font-size:16px;}
+    .relatorio-titulo{font-size:27px;white-space:normal;}
+    .relatorio-info{grid-template-columns:1fr;}
+    .relatorio-info-item{border-right:0;border-bottom:1px solid #555;}
+    .relatorio-info-item:last-child{border-bottom:0;}
+    .relatorio-linha{grid-template-columns:82px 1fr;min-height:92px;}
+    .relatorio-icone{width:60px;height:60px;margin:14px 8px 14px 10px;font-size:29px;}
+    .relatorio-campo{padding:14px 10px 14px 3px;}
+    .relatorio-campo h3{font-size:18px;}
+    .relatorio-campo p{font-size:17px;}
+    .info-label{font-size:14px;}
+    .info-valor{font-size:21px;}
+}
+
+@media print{
+    @page{size:A4;margin:7mm;}
+    html,body{
+        background:#050505 !important;
+        color:#fff !important;
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
+    }
+    header,.menu,.card{
+        display:none !important;
+    }
+    .container{
+        width:100% !important;
+        max-width:none !important;
+        margin:0 !important;
+    }
+    #relatorio{
+        display:block !important;
+        max-width:none !important;
+        margin:0 !important;
+        background:#050505 !important;
+        color:#fff !important;
+    }
+    .relatorio-page{
+        border:2px solid #eab308 !important;
+        box-shadow:none !important;
+        min-height:0;
+    }
+    .relatorio-page::before{
+        display:block !important;
+    }
+    #relatorio .acoes-relatorio{
+        display:none !important;
+    }
+    #imagemRelatorio{
+        display:block !important;
+        width:auto !important;
+        max-width:100% !important;
+        max-height:470px !important;
+        margin:0 auto !important;
+        float:none !important;
+        clear:both !important;
+    }
+
+    .relatorio-evidencia{
+        display:block !important;
+        width:100% !important;
+        float:none !important;
+        clear:both !important;
+        break-before:auto;
+        break-inside:avoid;
+        page-break-inside:avoid;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     CABEÇALHO
+========================= -->
+
+<header>
+
+<h1>
+RELATÓRIO DE PROVA —
+<span>E.P.S</span>
+</h1>
+
+</header>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<div class="menu">
+
+<button onclick="mostrar('ensino')">
+📚 Como fazer
+</button>
+
+<button onclick="mostrar('formulario')">
+📝 Criar relatório
+</button>
+
+<button onclick="gerarRelatorioIA()">
+🤖 Relatório por IA
+</button>
+
+<button onclick="mostrar('relatorio')">
+📄 Ver relatório
+</button>
+
+</div>
+
+
+<div class="container">
+
+
+<!-- =========================
+     ENSINO
+========================= -->
+
+<section id="ensino" class="card">
+
+<h2>
+📚 Como fazer um relatório
+</h2>
+
+
+<div class="passo">
+
+<strong>
+1 — Identifique a ocorrência
+</strong>
+
+<p>
+Informe a data, horário e outras informações importantes.
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<strong>
+2 — Informe o QRA
+</strong>
+
+<p>
+Coloque a identificação ou nome da pessoa envolvida.
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<strong>
+3 — Conte o que aconteceu
+</strong>
+
+<p>
+Você pode escrever ou simplesmente falar usando o microfone.
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<strong>
+4 — Grave o áudio
+</strong>
+
+<p>
+Clique em "PERMITIR MICROFONE" e depois em
+"INICIAR GRAVAÇÃO". Fale normalmente explicando
+tudo o que aconteceu.
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<strong>
+5 — Gere com IA
+</strong>
+
+<p>
+O sistema organiza o texto obtido através da sua fala
+para ajudar na criação do relatório.
+</p>
+
+</div>
+
+
+<div class="passo">
+
+<strong>
+6 — Revise e salve
+</strong>
+
+<p>
+Confira o relatório e use a opção de imprimir
+para salvar como PDF.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FORMULÁRIO
+========================= -->
+
+<section id="formulario" class="card">
+
+<h2>
+📝 Criar relatório
+</h2>
+
+
+<div class="grid">
+
+
+<div class="campo">
+
+<label>
+Data
+</label>
+
+<input
+type="date"
+id="data"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Início da prova
+</label>
+
+<input
+type="time"
+id="inicio"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Fim da prova
+</label>
+
+<input
+type="time"
+id="fim"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+QRA
+</label>
+
+<input
+type="text"
+id="qra"
+placeholder="Ex: Dk Zangado"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Responsável pela prova
+</label>
+
+<input
+type="text"
+id="responsavelProva"
+>
+
+</div>
+
+
+<div class="campo">
+
+<label>
+Responsável pelo relatório
+</label>
+
+<input
+type="text"
+id="responsavelRelatorio"
+>
+
+</div>
+
+</div>
+
+
+<br>
+
+
+<div class="campo">
+
+<label>
+OBSERVAÇÃO / DESCRIÇÃO
+</label>
+
+<textarea
+id="observacao"
+placeholder="Você pode escrever aqui ou usar o microfone..."
+></textarea>
+
+</div>
+
+
+<!-- =========================
+     ÁUDIO
+========================= -->
+
+<div class="audio-box">
+
+<h2>
+🎙️ Falar para criar o relatório
+</h2>
+
+<p>
+Para usar esta função, permita que o navegador
+acesse o microfone do seu dispositivo.
+</p>
+
+
+<div id="permissaoMicrofone">
+
+🔐 <strong>Permissão necessária</strong>
+
+<p style="margin-top:8px;color:#ccc;">
+
+Clique em "PERMITIR MICROFONE".
+O navegador irá perguntar se este site pode
+usar seu microfone.
+
+</p>
+
+<button
+class="btn btn-amarelo"
+onclick="pedirPermissaoMicrofone()"
+>
+
+🎙️ PERMITIR MICROFONE
+
+</button>
+
+</div>
+
+
+<div id="statusAudio">
+
+Pronto para gravar.
+
+</div>
+
+
+<button
+id="btnGravar"
+class="btn btn-verde"
+onclick="iniciarGravacao()"
+disabled
+>
+
+🎙️ INICIAR GRAVAÇÃO
+
+</button>
+
+
+<button
+class="btn btn-vermelho"
+onclick="pararGravacao()"
+>
+
+⏹️ PARAR
+
+</button>
+
+
+<audio
+id="audioPlayer"
+controls
+></audio>
+
+
+<br>
+
+
+<button
+class="btn btn-amarelo"
+onclick="gerarRelatorioIA()"
+>
+
+🤖 GERAR RELATÓRIO COM IA
+
+</button>
+
+
+<div
+id="iaStatus"
+class="ia-status"
+>
+
+<strong>
+🤖 IA:
+</strong>
+
+<span id="iaTexto">
+
+Analisando informações...
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     IMAGEM
+========================= -->
+
+<div
+class="campo"
+style="margin-top:25px"
+>
+
+<label>
+
+🖼️ Imagem / Evidência
+
+</label>
+
+
+<input
+type="file"
+id="imagem"
+accept="image/*"
+onchange="carregarImagem(event)"
+>
+
+</div>
+
+
+<div class="preview">
+
+<img
+id="previewImagem"
+style="display:none"
+>
+
+</div>
+
+
+<br>
+
+
+<button
+class="btn btn-amarelo"
+onclick="gerarRelatorio()"
+>
+
+📄 GERAR RELATÓRIO
+
+</button>
+
+
+<button
+class="btn btn-cinza"
+onclick="limparTudo()"
+>
+
+🗑️ LIMPAR
+
+</button>
+
+
+</section>
+
+
+<!-- =========================
+     RELATÓRIO FINAL
+========================= -->
+
+
+<section id="relatorio">
+
+    <div class="relatorio-page">
+
+        <div class="relatorio-cabecalho">
+            <div class="eps-logo" aria-label="E.P.S">
+                <div class="eps-text">E.P.S</div>
+                <div class="eps-wing">★</div>
+                <div class="eps-star">★</div>
+            </div>
+
+            <h1 class="relatorio-titulo">
+                RELATÓRIO DE PROVA — <span>E.P.S</span>
+            </h1>
+        </div>
+
+        <div class="relatorio-info">
+
+            <div class="relatorio-info-item">
+                <div class="info-icone">▣</div>
+                <div>
+                    <span class="info-label">DATA:</span>
+                    <span class="info-valor" id="rData"></span>
+                </div>
+            </div>
+
+            <div class="relatorio-info-item">
+                <div class="info-icone">◷</div>
+                <div>
+                    <span class="info-label">INÍCIO DA PROVA:</span>
+                    <span class="info-valor" id="rInicio"></span>
+                </div>
+            </div>
+
+            <div class="relatorio-info-item">
+                <div class="info-icone">◷</div>
+                <div>
+                    <span class="info-label">FIM DA PROVA:</span>
+                    <span class="info-valor" id="rFim"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="relatorio-conteudo">
+
+            <div class="relatorio-linha">
+                <div class="relatorio-icone">▣</div>
+                <div class="relatorio-campo">
+                    <h3>QRA:</h3>
+                    <p id="rQra"></p>
+                </div>
+            </div>
+
+            <div class="relatorio-linha">
+                <div class="relatorio-icone">●</div>
+                <div class="relatorio-campo">
+                    <h3>OBS:</h3>
+                    <p id="rObs"></p>
+                </div>
+            </div>
+
+            <div class="relatorio-linha">
+                <div class="relatorio-icone">▤</div>
+                <div class="relatorio-campo">
+                    <h3>RESPONSÁVEL PELA PROVA:</h3>
+                    <p id="rResponsavelProva"></p>
+                </div>
+            </div>
+
+            <div class="relatorio-linha">
+                <div class="relatorio-icone">✎</div>
+                <div class="relatorio-campo">
+                    <h3>RESPONSÁVEL PELO RELATÓRIO:</h3>
+                    <p id="rResponsavelRelatorio"></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="relatorio-evidencia" id="blocoImagem">
+            <h3>🖼️ EVIDÊNCIA:</h3>
+            <img id="imagemRelatorio" alt="Evidência do relatório">
+        </div>
+
+        <div class="relatorio-audio" id="blocoAudio">
+            <h3>🎙️ ÁUDIO:</h3>
+            <audio id="audioRelatorio" controls style="width:100%;"></audio>
+        </div>
+
+        <div class="acoes-relatorio">
+            <button class="btn btn-amarelo" onclick="window.print()">
+                🖨️ IMPRIMIR / SALVAR PDF
+            </button>
+
+            <button class="btn btn-cinza" onclick="mostrar('formulario')">
+                ✏️ EDITAR RELATÓRIO
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+<script>
+
+/* =========================
+   VARIÁVEIS
+========================= */
+
+let gravador = null;
+
+let partesAudio = [];
+
+let audioURL = null;
+
+let reconhecimento = null;
+
+let microfonePermitido = false;
+
+
+/* =========================
+   MOSTRAR SEÇÃO
+========================= */
+
+function mostrar(secao){
+
+    document.getElementById("ensino").style.display="none";
+
+    document.getElementById("formulario").style.display="none";
+
+    document.getElementById("relatorio").style.display="none";
+
+
+    const elemento =
+    document.getElementById(secao);
+
+    if(elemento){
+
+        elemento.style.display="block";
+
+    }
+
+}
+
+
+/* =========================
+   DATA AUTOMÁTICA
+========================= */
+
+const hoje = new Date();
+
+const ano = hoje.getFullYear();
+
+const mes =
+String(hoje.getMonth()+1).padStart(2,"0");
+
+const dia =
+String(hoje.getDate()).padStart(2,"0");
+
+
+document.getElementById("data").value =
+ano+"-"+mes+"-"+dia;
+
+
+/* =========================
+   IMAGEM
+========================= */
+
+function carregarImagem(event){
+
+    const arquivo =
+    event.target.files[0];
+
+    if(!arquivo){
+
+        return;
+
+    }
+
+
+    const leitor =
+    new FileReader();
+
+
+    leitor.onload=function(e){
+
+        const img =
+        document.getElementById(
+            "previewImagem"
+        );
+
+        img.src=e.target.result;
+
+        img.style.display="block";
+
+    };
+
+
+    leitor.readAsDataURL(arquivo);
+
+}
+
+
+/* =========================
+   PEDIR PERMISSÃO
+========================= */
+
+async function pedirPermissaoMicrofone(){
+
+    try{
+
+        if(
+            !navigator.mediaDevices ||
+            !navigator.mediaDevices.getUserMedia
+        ){
+
+            alert(
+                "Seu navegador não permite acesso ao microfone."
+            );
+
+            return;
+
+        }
+
+
+        const stream =
+        await navigator.mediaDevices.getUserMedia({
+            audio:true
+        });
+
+
+        /*
+        Permissão concedida.
+        Fecha o microfone até a gravação começar.
+        */
+
+        stream.getTracks().forEach(
+            track => track.stop()
+        );
+
+
+        microfonePermitido = true;
+
+
+        document.getElementById(
+            "permissaoMicrofone"
+        ).style.display="none";
+
+
+        document.getElementById(
+            "btnGravar"
+        ).disabled=false;
+
+
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+        "✅ Microfone autorizado. Você já pode gravar.";
+
+    }
+
+    catch(erro){
+
+        console.error(erro);
+
+        microfonePermitido=false;
+
+
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+        "⚠️ Microfone não autorizado.";
+
+
+        alert(
+            "❌ Não foi possível acessar o microfone.\n\n" +
+
+            "Quando o navegador perguntar, clique em " +
+            "'Permitir'.\n\n" +
+
+            "Se você bloqueou anteriormente, abra as " +
+            "configurações/permissões do site e permita " +
+            "o uso do microfone."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   INICIAR GRAVAÇÃO
+========================= */
+
+async function iniciarGravacao(){
+
+    try{
+
+        if(!microfonePermitido){
+
+            await pedirPermissaoMicrofone();
+
+            if(!microfonePermitido){
+
+                return;
+
+            }
+
+        }
+
+
+        const stream =
+        await navigator.mediaDevices.getUserMedia({
+            audio:true
+        });
+
+
+        partesAudio=[];
+
+
+        let tipoAudio="";
+
+
+        if(
+            MediaRecorder.isTypeSupported(
+                "audio/webm;codecs=opus"
+            )
+        ){
+
+            tipoAudio =
+            "audio/webm;codecs=opus";
+
+        }
+
+        else if(
+            MediaRecorder.isTypeSupported(
+                "audio/webm"
+            )
+        ){
+
+            tipoAudio =
+            "audio/webm";
+
+        }
+
+
+        gravador =
+        tipoAudio
+        ?
+        new MediaRecorder(
+            stream,
+            {
+                mimeType:tipoAudio
+            }
+        )
+        :
+        new MediaRecorder(stream);
+
+
+        gravador.ondataavailable =
+        function(event){
+
+            if(event.data.size > 0){
+
+                partesAudio.push(event.data);
+
+            }
+
+        };
+
+
+        gravador.onstop =
+        function(){
+
+            const blob =
+            new Blob(
+                partesAudio,
+                {
+                    type:
+                    gravador.mimeType ||
+                    "audio/webm"
+                }
+            );
+
+
+            if(audioURL){
+
+                URL.revokeObjectURL(
+                    audioURL
+                );
+
+            }
+
+
+            audioURL =
+            URL.createObjectURL(blob);
+
+
+            document.getElementById(
+                "audioPlayer"
+            ).src =
+            audioURL;
+
+
+            document.getElementById(
+                "audioRelatorio"
+            ).src =
+            audioURL;
+
+
+            document.getElementById(
+                "statusAudio"
+            ).innerText =
+            "✅ Áudio gravado com sucesso!";
+
+
+            document.getElementById(
+                "btnGravar"
+            ).disabled=false;
+
+        };
+
+
+        gravador.start();
+
+
+        document.getElementById(
+            "btnGravar"
+        ).disabled=true;
+
+
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+        "🔴 GRAVANDO... Fale normalmente.";
+
+
+        iniciarReconhecimento();
+
+    }
+
+    catch(erro){
+
+        console.error(erro);
+
+        microfonePermitido=false;
+
+
+        document.getElementById(
+            "btnGravar"
+        ).disabled=true;
+
+
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+        "❌ Não foi possível iniciar a gravação.";
+
+
+        alert(
+            "❌ Erro ao acessar o microfone.\n\n" +
+            "Verifique a permissão do navegador."
+        );
+
+    }
+
+}
+
+
+/* =========================
+   PARAR GRAVAÇÃO
+========================= */
+
+function pararGravacao(){
+
+    if(
+        gravador &&
+        gravador.state !== "inactive"
+    ){
+
+        gravador.stop();
+
+
+        if(gravador.stream){
+
+            gravador.stream
+            .getTracks()
+            .forEach(
+                track => track.stop()
+            );
+
+        }
+
+    }
+
+
+    if(reconhecimento){
+
+        try{
+
+            reconhecimento.stop();
+
+        }
+
+        catch(e){}
+
+    }
+
+
+    document.getElementById(
+        "statusAudio"
+    ).innerText =
+    "⏹️ Gravação finalizada.";
+
+}
+
+
+/* =========================
+   RECONHECIMENTO DE VOZ
+========================= */
+
+function iniciarReconhecimento(){
+
+    const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+    if(!SpeechRecognition){
+
+        alert(
+            "⚠️ Seu navegador não possui " +
+            "reconhecimento de voz.\n\n" +
+
+            "Use o Google Chrome ou Microsoft Edge."
+        );
+
+        return;
+
+    }
+
+
+    reconhecimento =
+    new SpeechRecognition();
+
+
+    reconhecimento.lang =
+    "pt-BR";
+
+
+    reconhecimento.continuous =
+    true;
+
+
+    reconhecimento.interimResults =
+    false;
+
+
+    reconhecimento.onresult =
+    function(event){
+
+        let texto="";
+
+
+        for(
+            let i=event.resultIndex;
+            i<event.results.length;
+            i++
+        ){
+
+            texto +=
+            event.results[i][0].transcript +
+            " ";
+
+        }
+
+
+        const campo =
+        document.getElementById(
+            "observacao"
+        );
+
+
+        campo.value += texto;
+
+    };
+
+
+    reconhecimento.onerror =
+    function(event){
+
+        console.log(
+            "Erro no reconhecimento:",
+            event.error
+        );
+
+    };
+
+
+    try{
+
+        reconhecimento.start();
+
+    }
+
+    catch(e){
+
+        console.log(e);
+
+    }
+
+}
+
+
+/* =========================
+   RELATÓRIO POR IA
+========================= */
+
+function gerarRelatorioIA(){
+
+    const observacao =
+    document.getElementById(
+        "observacao"
+    ).value.trim();
+
+
+    if(!observacao){
+
+        alert(
+            "🎙️ Primeiro grave um áudio " +
+            "ou escreva a descrição da ocorrência."
+        );
+
+        return;
+
+    }
+
+
+    const status =
+    document.getElementById(
+        "iaStatus"
+    );
+
+
+    const textoIA =
+    document.getElementById(
+        "iaTexto"
+    );
+
+
+    status.style.display="block";
+
+
+    textoIA.innerText =
+    "🤖 Organizando as informações...";
+
+
+    setTimeout(function(){
+
+        const textoOrganizado =
+        organizarTexto(observacao);
+
+
+        document.getElementById(
+            "observacao"
+        ).value =
+        textoOrganizado;
+
+
+        textoIA.innerText =
+        "✅ Relatório organizado com sucesso!";
+
+
+        gerarRelatorio();
+
+
+    },1200);
+
+}
+
+
+/* =========================
+   ORGANIZADOR DE TEXTO
+========================= */
+
+function organizarTexto(texto){
+
+    texto =
+    texto.trim();
+
+
+    if(texto.length < 10){
+
+        return texto;
+
+    }
+
+
+    let resultado =
+    texto.charAt(0).toUpperCase() +
+    texto.slice(1);
+
+
+    if(
+        !resultado.endsWith(".") &&
+        !resultado.endsWith("!") &&
+        !resultado.endsWith("?")
+    ){
+
+        resultado += ".";
+
+    }
+
+
+    return (
+        "Durante a realização da prova, " +
+        "foi registrada a seguinte ocorrência: " +
+        resultado
+    );
+
+}
+
+
+/* =========================
+   GERAR RELATÓRIO
+========================= */
+
+function gerarRelatorio(){
+
+    const data =
+    document.getElementById(
+        "data"
+    ).value;
+
+
+    const inicio =
+    document.getElementById(
+        "inicio"
+    ).value;
+
+
+    const fim =
+    document.getElementById(
+        "fim"
+    ).value;
+
+
+    const qra =
+    document.getElementById(
+        "qra"
+    ).value;
+
+
+    const obs =
+    document.getElementById(
+        "observacao"
+    ).value;
+
+
+    const respProva =
+    document.getElementById(
+        "responsavelProva"
+    ).value;
+
+
+    const respRelatorio =
+    document.getElementById(
+        "responsavelRelatorio"
+    ).value;
+
+
+    if(!qra){
+
+        alert(
+            "Digite o QRA antes de gerar o relatório."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "rData"
+    ).innerText =
+    formatarData(data);
+
+
+    document.getElementById(
+        "rInicio"
+    ).innerText =
+    inicio || "--:--";
+
+
+    document.getElementById(
+        "rFim"
+    ).innerText =
+    fim || "--:--";
+
+
+    document.getElementById(
+        "rQra"
+    ).innerText =
+    qra;
+
+
+    document.getElementById(
+        "rObs"
+    ).innerText =
+    obs ||
+    "Nenhuma observação informada.";
+
+
+    document.getElementById(
+        "rResponsavelProva"
+    ).innerText =
+    respProva ||
+    "Não informado";
+
+
+    document.getElementById(
+        "rResponsavelRelatorio"
+    ).innerText =
+    respRelatorio ||
+    "Não informado";
+
+
+    /* =========================
+       IMAGEM
+    ========================= */
+
+    const imagem =
+    document.getElementById(
+        "previewImagem"
+    );
+
+
+    const imagemRelatorio =
+    document.getElementById(
+        "imagemRelatorio"
+    );
+
+
+    if(
+        imagem.src &&
+        imagem.style.display !== "none"
+    ){
+
+        imagemRelatorio.src =
+        imagem.src;
+
+
+        document.getElementById(
+            "blocoImagem"
+        ).style.display="block";
+
+    }
+
+    else{
+
+        document.getElementById(
+            "blocoImagem"
+        ).style.display="none";
+
+    }
+
+
+    /* =========================
+       ÁUDIO
+    ========================= */
+
+    if(audioURL){
+
+        document.getElementById(
+            "audioRelatorio"
+        ).src =
+        audioURL;
+
+
+        document.getElementById(
+            "blocoAudio"
+        ).style.display="block";
+
+    }
+
+    else{
+
+        document.getElementById(
+            "blocoAudio"
+        ).style.display="none";
+
+    }
+
+
+    mostrar("relatorio");
+
+}
+
+
+/* =========================
+   FORMATAR DATA
+========================= */
+
+function formatarData(data){
+
+    if(!data){
+
+        return "";
+
+    }
+
+
+    const partes =
+    data.split("-");
+
+
+    return (
+        partes[2]+"/"+
+        partes[1]+"/"+
+        partes[0]
+    );
+
+}
+
+
+/* =========================
+   LIMPAR TUDO
+========================= */
+
+function limparTudo(){
+
+    document.getElementById(
+        "qra"
+    ).value="";
+
+
+    document.getElementById(
+        "inicio"
+    ).value="";
+
+
+    document.getElementById(
+        "fim"
+    ).value="";
+
+
+    document.getElementById(
+        "observacao"
+    ).value="";
+
+
+    document.getElementById(
+        "responsavelProva"
+    ).value="";
+
+
+    document.getElementById(
+        "responsavelRelatorio"
+    ).value="";
+
+
+    document.getElementById(
+        "imagem"
+    ).value="";
+
+
+    document.getElementById(
+        "previewImagem"
+    ).src="";
+
+
+    document.getElementById(
+        "previewImagem"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "audioPlayer"
+    ).src="";
+
+
+    document.getElementById(
+        "audioRelatorio"
+    ).src="";
+
+
+    document.getElementById(
+        "statusAudio"
+    ).innerText =
+    "Pronto para gravar.";
+
+
+    document.getElementById(
+        "iaStatus"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "permissaoMicrofone"
+    ).style.display="block";
+
+
+    document.getElementById(
+        "btnGravar"
+    ).disabled=true;
+
+
+    partesAudio=[];
+
+
+    if(audioURL){
+
+        URL.revokeObjectURL(
+            audioURL
+        );
+
+    }
+
+
+    audioURL=null;
+
+    microfonePermitido=false;
+
+}
+
+
+/* =========================
+   VERIFICAR MICROFONE
+========================= */
+
+async function verificarMicrofone(){
+
+    if(
+        !navigator.mediaDevices ||
+        !navigator.mediaDevices.getUserMedia
+    ){
+
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+        "❌ Seu navegador não permite acesso ao microfone.";
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "statusAudio"
+    ).innerText =
+    "🔐 Autorize o microfone para começar.";
+
+}
+
+
+/* =========================
+   INICIAR APP
+========================= */
+
+verificarMicrofone();
+
+mostrar("ensino");
+
+</script>
+
+
+</body>
+
+</html>
