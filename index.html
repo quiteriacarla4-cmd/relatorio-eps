@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Relatório de Prova - E.P.S</title>
 
@@ -28,6 +24,10 @@ body{
     color:white;
     min-height:100vh;
 }
+
+/* =========================
+   CABEÇALHO
+========================= */
 
 header{
     padding:25px 15px;
@@ -371,6 +371,10 @@ audio{
     color:#f5b400;
 }
 
+/* =========================
+   INFORMAÇÕES
+========================= */
+
 .relatorio-info{
     position:relative;
     z-index:1;
@@ -415,6 +419,10 @@ audio{
     font-size:26px;
     font-weight:500;
 }
+
+/* =========================
+   CONTEÚDO DO RELATÓRIO
+========================= */
 
 .relatorio-conteudo{
     position:relative;
@@ -467,6 +475,10 @@ audio{
     white-space:pre-wrap;
 }
 
+/* =========================
+   EVIDÊNCIA
+========================= */
+
 .relatorio-evidencia{
     position:relative;
     z-index:1;
@@ -491,6 +503,10 @@ audio{
     border-radius:0;
     background:#050505;
 }
+
+/* =========================
+   ÁUDIO NO RELATÓRIO
+========================= */
 
 .relatorio-audio{
     position:relative;
@@ -538,18 +554,6 @@ audio{
 ========================= */
 
 @media(max-width:800px){
-
-    header h1{
-        font-size:24px;
-    }
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-
-    .menu button{
-        width:100%;
-    }
 
     .relatorio-page{
         padding:12px 10px 18px;
@@ -631,11 +635,25 @@ audio{
     .info-valor{
         font-size:21px;
     }
+}
 
+@media(max-width:700px){
+
+    header h1{
+        font-size:24px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .menu button{
+        width:100%;
+    }
 }
 
 /* =========================
-   IMPRESSÃO
+   IMPRESSÃO / PDF
 ========================= */
 
 @media print{
@@ -645,7 +663,8 @@ audio{
         margin:7mm;
     }
 
-    html,body{
+    html,
+    body{
         background:#050505 !important;
         color:#fff !important;
         -webkit-print-color-adjust:exact !important;
@@ -689,11 +708,9 @@ audio{
     #imagemRelatorio{
         max-height:470px !important;
     }
-
 }
 
 </style>
-
 </head>
 
 <body>
@@ -730,14 +747,12 @@ RELATÓRIO DE PROVA —
 <div class="container">
 
 <!-- =========================
-     ENSINO
+     COMO FAZER
 ========================= -->
 
 <section id="ensino" class="card">
 
-<h2>
-📚 Como fazer um relatório
-</h2>
+<h2>📚 Como fazer um relatório</h2>
 
 <div class="passo">
 <strong>1 — Identifique a ocorrência</strong>
@@ -763,29 +778,27 @@ Você pode escrever ou simplesmente falar usando o microfone.
 <div class="passo">
 <strong>4 — Grave o áudio</strong>
 <p>
-Clique em "PERMITIR MICROFONE" e depois em
-"INICIAR GRAVAÇÃO". Fale normalmente explicando
-tudo o que aconteceu.
+Clique em "PERMITIR MICROFONE" e depois em "INICIAR GRAVAÇÃO".
+Fale normalmente explicando tudo o que aconteceu.
 </p>
 </div>
 
 <div class="passo">
 <strong>5 — Gere com IA</strong>
 <p>
-O sistema organiza o texto obtido através da sua fala
-para ajudar na criação do relatório.
+O sistema organiza o texto obtido através da sua fala para ajudar na criação do relatório.
 </p>
 </div>
 
 <div class="passo">
 <strong>6 — Revise e salve</strong>
 <p>
-Confira o relatório e use a opção de imprimir
-para salvar como PDF.
+Confira o relatório e use a opção de imprimir para salvar como PDF.
 </p>
 </div>
 
 </section>
+
 
 <!-- =========================
      FORMULÁRIO
@@ -793,77 +806,45 @@ para salvar como PDF.
 
 <section id="formulario" class="card">
 
-<h2>
-📝 Criar relatório
-</h2>
+<h2>📝 Criar relatório</h2>
 
 <div class="grid">
 
 <div class="campo">
-
 <label>Data</label>
-
-<input
-type="date"
-id="data"
->
-
+<input type="date" id="data">
 </div>
 
 <div class="campo">
-
 <label>Início da prova</label>
-
-<input
-type="time"
-id="inicio"
->
-
+<input type="time" id="inicio">
 </div>
 
 <div class="campo">
-
 <label>Fim da prova</label>
-
-<input
-type="time"
-id="fim"
->
-
+<input type="time" id="fim">
 </div>
 
 <div class="campo">
-
 <label>QRA</label>
-
 <input
 type="text"
 id="qra"
-placeholder="Ex: Dk Zangado"
->
-
+placeholder="Ex: Dk Zangado">
 </div>
 
 <div class="campo">
-
 <label>Responsável pela prova</label>
-
 <input
 type="text"
-id="responsavelProva"
->
-
+id="responsavelProva">
 </div>
 
 <div class="campo">
-
 <label>Responsável pelo relatório</label>
-
 <input
 type="text"
-id="responsavelRelatorio"
->
-
+id="responsavelRelatorio">
 </div>
 
 </div>
@@ -878,10 +859,10 @@ OBSERVAÇÃO / DESCRIÇÃO
 
 <textarea
 id="observacao"
-placeholder="Você pode escrever aqui ou usar o microfone..."
-></textarea>
+placeholder="Você pode escrever aqui ou usar o microfone..."></textarea>
 
 </div>
+
 
 <!-- =========================
      ÁUDIO
@@ -889,13 +870,10 @@ placeholder="Você pode escrever aqui ou usar o microfone..."
 
 <div class="audio-box">
 
-<h2>
-🎙️ Falar para criar o relatório
-</h2>
+<h2>🎙️ Falar para criar o relatório</h2>
 
 <p>
-Para usar esta função, permita que o navegador
-acesse o microfone do seu dispositivo.
+Para usar esta função, permita que o navegador acesse o microfone do seu dispositivo.
 </p>
 
 <div id="permissaoMicrofone">
@@ -903,17 +881,13 @@ acesse o microfone do seu dispositivo.
 🔐 <strong>Permissão necessária</strong>
 
 <p style="margin-top:8px;color:#ccc;">
-
 Clique em "PERMITIR MICROFONE".
-O navegador irá perguntar se este site pode
-usar seu microfone.
-
+O navegador irá perguntar se este site pode usar seu microfone.
 </p>
 
 <button
 class="btn btn-amarelo"
-onclick="pedirPermissaoMicrofone()"
->
+onclick="pedirPermissaoMicrofone()">
 
 🎙️ PERMITIR MICROFONE
 
@@ -921,66 +895,64 @@ onclick="pedirPermissaoMicrofone()"
 
 </div>
 
+
 <div id="statusAudio">
-
 Pronto para gravar.
-
 </div>
+
 
 <button
 id="btnGravar"
 class="btn btn-verde"
 onclick="iniciarGravacao()"
-disabled
->
+disabled>
 
 🎙️ INICIAR GRAVAÇÃO
 
 </button>
 
+
 <button
 class="btn btn-vermelho"
-onclick="pararGravacao()"
->
+onclick="pararGravacao()">
 
 ⏹️ PARAR
 
 </button>
 
+
 <audio
 id="audioPlayer"
-controls
-></audio>
+controls>
+</audio>
+
 
 <br>
 
+
 <button
 class="btn btn-amarelo"
-onclick="gerarRelatorioIA()"
->
+onclick="gerarRelatorioIA()">
 
 🤖 GERAR RELATÓRIO COM IA
 
 </button>
 
+
 <div
 id="iaStatus"
-class="ia-status"
->
+class="ia-status">
 
-<strong>
-🤖 IA:
-</strong>
+<strong>🤖 IA:</strong>
 
 <span id="iaTexto">
-
-Analisando informações...
-
+Aguardando informações...
 </span>
 
 </div>
 
 </div>
+
 
 <!-- =========================
      IMAGEM
@@ -988,8 +960,7 @@ Analisando informações...
 
 <div
 class="campo"
-style="margin-top:25px"
->
+style="margin-top:25px">
 
 <label>
 🖼️ Imagem / Evidência
@@ -999,35 +970,35 @@ style="margin-top:25px"
 type="file"
 id="imagem"
 accept="image/*"
-onchange="carregarImagem(event)"
->
+onchange="carregarImagem(event)">
 
 </div>
+
 
 <div class="preview">
 
 <img
 id="previewImagem"
-style="display:none"
->
+style="display:none">
 
 </div>
 
+
 <br>
+
 
 <button
 class="btn btn-amarelo"
-onclick="gerarRelatorio()"
->
+onclick="gerarRelatorio()">
 
 📄 GERAR RELATÓRIO
 
 </button>
 
+
 <button
 class="btn btn-cinza"
-onclick="limparTudo()"
->
+onclick="limparTudo()">
 
 🗑️ LIMPAR
 
@@ -1035,17 +1006,21 @@ onclick="limparTudo()"
 
 </section>
 
+
 <!-- =========================
-     RELATÓRIO FINAL
+     RELATÓRIO
 ========================= -->
 
 <section id="relatorio">
 
 <div class="relatorio-page">
 
+
 <div class="relatorio-cabecalho">
 
-<div class="eps-logo" aria-label="E.P.S">
+<div
+class="eps-logo"
+aria-label="E.P.S">
 
 <div class="eps-text">
 E.P.S
@@ -1061,13 +1036,21 @@ E.P.S
 
 </div>
 
+
 <h1 class="relatorio-titulo">
-RELATÓRIO DE PROVA — <span>E.P.S</span>
+
+RELATÓRIO DE PROVA —
+<span>E.P.S</span>
+
 </h1>
 
 </div>
 
+
+<!-- INFORMAÇÕES -->
+
 <div class="relatorio-info">
+
 
 <div class="relatorio-info-item">
 
@@ -1081,12 +1064,15 @@ RELATÓRIO DE PROVA — <span>E.P.S</span>
 DATA:
 </span>
 
-<span class="info-valor" id="rData">
+<span
+class="info-valor"
+id="rData">
 </span>
 
 </div>
 
 </div>
+
 
 <div class="relatorio-info-item">
 
@@ -1100,12 +1086,15 @@ DATA:
 INÍCIO DA PROVA:
 </span>
 
-<span class="info-valor" id="rInicio">
+<span
+class="info-valor"
+id="rInicio">
 </span>
 
 </div>
 
 </div>
+
 
 <div class="relatorio-info-item">
 
@@ -1119,16 +1108,23 @@ INÍCIO DA PROVA:
 FIM DA PROVA:
 </span>
 
-<span class="info-valor" id="rFim">
+<span
+class="info-valor"
+id="rFim">
 </span>
 
 </div>
 
 </div>
 
+
 </div>
 
+
+<!-- CONTEÚDO -->
+
 <div class="relatorio-conteudo">
+
 
 <div class="relatorio-linha">
 
@@ -1142,12 +1138,12 @@ FIM DA PROVA:
 QRA:
 </h3>
 
-<p id="rQra">
-</p>
+<p id="rQra"></p>
 
 </div>
 
 </div>
+
 
 <div class="relatorio-linha">
 
@@ -1161,12 +1157,12 @@ QRA:
 OBS:
 </h3>
 
-<p id="rObs">
-</p>
+<p id="rObs"></p>
 
 </div>
 
 </div>
+
 
 <div class="relatorio-linha">
 
@@ -1180,12 +1176,12 @@ OBS:
 RESPONSÁVEL PELA PROVA:
 </h3>
 
-<p id="rResponsavelProva">
-</p>
+<p id="rResponsavelProva"></p>
 
 </div>
 
 </div>
+
 
 <div class="relatorio-linha">
 
@@ -1199,19 +1195,21 @@ RESPONSÁVEL PELA PROVA:
 RESPONSÁVEL PELO RELATÓRIO:
 </h3>
 
-<p id="rResponsavelRelatorio">
-</p>
+<p id="rResponsavelRelatorio"></p>
 
 </div>
 
 </div>
 
+
 </div>
+
+
+<!-- EVIDÊNCIA -->
 
 <div
 class="relatorio-evidencia"
-id="blocoImagem"
->
+id="blocoImagem">
 
 <h3>
 🖼️ EVIDÊNCIA:
@@ -1219,15 +1217,16 @@ id="blocoImagem"
 
 <img
 id="imagemRelatorio"
-alt="Evidência do relatório"
->
+alt="Evidência do relatório">
 
 </div>
 
+
+<!-- ÁUDIO -->
+
 <div
 class="relatorio-audio"
-id="blocoAudio"
->
+id="blocoAudio">
 
 <h3>
 🎙️ ÁUDIO:
@@ -1236,26 +1235,28 @@ id="blocoAudio"
 <audio
 id="audioRelatorio"
 controls
-style="width:100%;"
-></audio>
+style="width:100%;">
+</audio>
 
 </div>
+
+
+<!-- BOTÕES -->
 
 <div class="acoes-relatorio">
 
 <button
 class="btn btn-amarelo"
-onclick="window.print()"
->
+onclick="window.print()">
 
 🖨️ IMPRIMIR / SALVAR PDF
 
 </button>
 
+
 <button
 class="btn btn-cinza"
-onclick="mostrar('formulario')"
->
+onclick="mostrar('formulario')">
 
 ✏️ EDITAR RELATÓRIO
 
@@ -1263,16 +1264,18 @@ onclick="mostrar('formulario')"
 
 </div>
 
+
 </div>
 
 </section>
 
 </div>
 
+
 <script>
 
 /* =====================================================
-   VARIÁVEIS DO SISTEMA
+   VARIÁVEIS
 ===================================================== */
 
 let gravador = null;
@@ -1283,13 +1286,19 @@ let audioURL = null;
 
 let reconhecimento = null;
 
-let streamMicrofone = null;
-
 let microfonePermitido = false;
+
+let reconhecimentoAtivo = false;
+
+let deveReconhecer = false;
+
+let textoTranscricaoFinal = "";
+
+let textoAntesDaTranscricao = "";
 
 
 /* =====================================================
-   MOSTRAR SEÇÃO
+   TROCAR SEÇÕES
 ===================================================== */
 
 function mostrar(secao){
@@ -1319,47 +1328,44 @@ const hoje = new Date();
 
 const ano = hoje.getFullYear();
 
-const mes =
-String(hoje.getMonth()+1).padStart(2,"0");
+const mes = String(
+    hoje.getMonth()+1
+).padStart(2,"0");
 
-const dia =
-String(hoje.getDate()).padStart(2,"0");
+const dia = String(
+    hoje.getDate()
+).padStart(2,"0");
 
 document.getElementById("data").value =
-ano + "-" + mes + "-" + dia;
+    ano + "-" + mes + "-" + dia;
 
 
 /* =====================================================
-   CARREGAR IMAGEM
+   IMAGEM
 ===================================================== */
 
 function carregarImagem(event){
 
     const arquivo =
-    event.target.files[0];
+        event.target.files[0];
 
     if(!arquivo){
-
         return;
-
     }
 
     const leitor =
-    new FileReader();
+        new FileReader();
 
-    leitor.onload =
-    function(e){
+    leitor.onload = function(e){
 
         const img =
-        document.getElementById(
-            "previewImagem"
-        );
+            document.getElementById("previewImagem");
 
         img.src =
-        e.target.result;
+            e.target.result;
 
         img.style.display =
-        "block";
+            "block";
 
     };
 
@@ -1369,95 +1375,7 @@ function carregarImagem(event){
 
 
 /* =====================================================
-   ERRO DO MICROFONE
-===================================================== */
-
-function mostrarErroMicrofone(erro){
-
-    console.error(
-        "ERRO DO MICROFONE:",
-        erro
-    );
-
-    let mensagem = "";
-
-    switch(erro.name){
-
-        case "NotAllowedError":
-
-            mensagem =
-            "🚫 O acesso ao microfone foi bloqueado.\n\n" +
-            "No Chrome, clique no ícone de configurações " +
-            "ao lado do endereço do site e coloque " +
-            "Microfone como PERMITIR.";
-
-            break;
-
-
-        case "NotFoundError":
-
-            mensagem =
-            "🎙️ Nenhum microfone foi encontrado.\n\n" +
-            "Verifique se o microfone está conectado " +
-            "ao computador.";
-
-            break;
-
-
-        case "NotReadableError":
-
-            mensagem =
-            "⚠️ O microfone foi encontrado, mas não pode " +
-            "ser utilizado.\n\n" +
-            "Outro programa pode estar usando o microfone.";
-
-            break;
-
-
-        case "SecurityError":
-
-            mensagem =
-            "🔒 O navegador bloqueou o acesso ao microfone " +
-            "por segurança.\n\n" +
-            "Tente abrir o sistema pelo endereço localhost.";
-
-            break;
-
-
-        case "AbortError":
-
-            mensagem =
-            "⚠️ O acesso ao microfone foi interrompido.";
-
-            break;
-
-
-        default:
-
-            mensagem =
-            "❌ Não foi possível acessar o microfone.\n\n" +
-            "Erro: " +
-            (erro.name || "desconhecido") +
-            "\n\n" +
-            (erro.message || "");
-
-    }
-
-
-    document.getElementById(
-        "statusAudio"
-    ).innerText =
-    "❌ " +
-    (erro.name || "Erro no microfone");
-
-
-    alert(mensagem);
-
-}
-
-
-/* =====================================================
-   PEDIR PERMISSÃO DO MICROFONE
+   PERMISSÃO DO MICROFONE
 ===================================================== */
 
 async function pedirPermissaoMicrofone(){
@@ -1470,9 +1388,7 @@ async function pedirPermissaoMicrofone(){
         ){
 
             alert(
-                "❌ Este navegador não disponibilizou " +
-                "o acesso ao microfone.\n\n" +
-                "Tente usar o Google Chrome."
+                "Seu navegador não permite acesso ao microfone."
             );
 
             return;
@@ -1480,66 +1396,64 @@ async function pedirPermissaoMicrofone(){
         }
 
 
-        document.getElementById(
-            "statusAudio"
-        ).innerText =
-        "🔐 Solicitando permissão do microfone...";
+        const stream =
+            await navigator.mediaDevices.getUserMedia({
+
+                audio:{
+                    echoCancellation:true,
+                    noiseSuppression:true,
+                    autoGainControl:true
+                }
+
+            });
 
 
-        /*
-         * Abre o microfone e mantém o stream aberto.
-         * Assim podemos usar o mesmo stream na gravação.
-         */
-
-        streamMicrofone =
-        await navigator.mediaDevices.getUserMedia({
-
-            audio:{
-                echoCancellation:true,
-                noiseSuppression:true,
-                autoGainControl:true
-            }
-
-        });
+        stream
+            .getTracks()
+            .forEach(track => track.stop());
 
 
-        microfonePermitido =
-        true;
+        microfonePermitido = true;
 
 
         document.getElementById(
             "permissaoMicrofone"
-        ).style.display =
-        "none";
+        ).style.display = "none";
 
 
         document.getElementById(
             "btnGravar"
-        ).disabled =
-        false;
+        ).disabled = false;
 
 
         document.getElementById(
             "statusAudio"
         ).innerText =
-        "✅ Microfone autorizado. Você já pode gravar.";
+            "✅ Microfone autorizado. Você já pode gravar.";
 
 
-        console.log(
-            "Microfone autorizado."
+    }catch(erro){
+
+        console.error(
+            "Erro na permissão:",
+            erro
         );
 
-    }
 
-    catch(erro){
+        microfonePermitido = false;
 
-        microfonePermitido =
-        false;
 
-        streamMicrofone =
-        null;
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+            "⚠️ Microfone não autorizado.";
 
-        mostrarErroMicrofone(erro);
+
+        alert(
+            "❌ Não foi possível acessar o microfone.\n\n" +
+            "Quando o navegador perguntar, clique em 'Permitir'.\n\n" +
+            "Se você bloqueou anteriormente, abra as configurações/permissões do site e permita o uso do microfone."
+        );
 
     }
 
@@ -1554,23 +1468,11 @@ async function iniciarGravacao(){
 
     try{
 
-        /*
-         * Se o microfone ainda não estiver autorizado,
-         * solicita a permissão.
-         */
-
-        if(
-            !microfonePermitido ||
-            !streamMicrofone ||
-            !streamMicrofone.active
-        ){
+        if(!microfonePermitido){
 
             await pedirPermissaoMicrofone();
 
-            if(
-                !microfonePermitido ||
-                !streamMicrofone
-            ){
+            if(!microfonePermitido){
 
                 return;
 
@@ -1579,18 +1481,16 @@ async function iniciarGravacao(){
         }
 
 
-        if(
-            typeof MediaRecorder === "undefined"
-        ){
+        const stream =
+            await navigator.mediaDevices.getUserMedia({
 
-            alert(
-                "❌ Seu navegador não suporta gravação de áudio.\n\n" +
-                "Use o Google Chrome ou Microsoft Edge."
-            );
+                audio:{
+                    echoCancellation:true,
+                    noiseSuppression:true,
+                    autoGainControl:true
+                }
 
-            return;
-
-        }
+            });
 
 
         partesAudio = [];
@@ -1600,172 +1500,108 @@ async function iniciarGravacao(){
 
 
         if(
+            typeof MediaRecorder !== "undefined" &&
             MediaRecorder.isTypeSupported(
                 "audio/webm;codecs=opus"
             )
         ){
 
             tipoAudio =
-            "audio/webm;codecs=opus";
+                "audio/webm;codecs=opus";
 
-        }
+        }else if(
 
-        else if(
+            typeof MediaRecorder !== "undefined" &&
             MediaRecorder.isTypeSupported(
                 "audio/webm"
             )
+
         ){
 
             tipoAudio =
-            "audio/webm";
+                "audio/webm";
 
         }
 
 
-        if(tipoAudio){
-
-            gravador =
-            new MediaRecorder(
-                streamMicrofone,
-                {
-                    mimeType:tipoAudio
-                }
-            );
-
-        }
-
-        else{
-
-            gravador =
-            new MediaRecorder(
-                streamMicrofone
-            );
-
-        }
+        gravador =
+            tipoAudio
+            ? new MediaRecorder(
+                stream,
+                {mimeType:tipoAudio}
+            )
+            : new MediaRecorder(stream);
 
 
         gravador.ondataavailable =
-        function(event){
+            function(event){
 
-            if(
-                event.data &&
-                event.data.size > 0
-            ){
+                if(event.data.size > 0){
 
-                partesAudio.push(
-                    event.data
-                );
+                    partesAudio.push(
+                        event.data
+                    );
 
-            }
+                }
 
-        };
-
-
-        gravador.onerror =
-        function(event){
-
-            console.error(
-                "Erro no gravador:",
-                event
-            );
-
-            document.getElementById(
-                "statusAudio"
-            ).innerText =
-            "❌ Erro durante a gravação.";
-
-        };
+            };
 
 
         gravador.onstop =
-        function(){
+            function(){
 
-            if(
-                partesAudio.length === 0
-            ){
+                const blob =
+                    new Blob(
+                        partesAudio,
+                        {
+                            type:
+                                gravador.mimeType ||
+                                "audio/webm"
+                        }
+                    );
+
+
+                if(audioURL){
+
+                    URL.revokeObjectURL(
+                        audioURL
+                    );
+
+                }
+
+
+                audioURL =
+                    URL.createObjectURL(blob);
+
+
+                document.getElementById(
+                    "audioPlayer"
+                ).src =
+                    audioURL;
+
+
+                document.getElementById(
+                    "audioRelatorio"
+                ).src =
+                    audioURL;
+
 
                 document.getElementById(
                     "statusAudio"
                 ).innerText =
-                "⚠️ Nenhum áudio foi gravado.";
-
-                return;
-
-            }
+                    "✅ Áudio gravado com sucesso!";
 
 
-            const blob =
-            new Blob(
-                partesAudio,
-                {
-                    type:
-                    gravador.mimeType ||
-                    "audio/webm"
-                }
-            );
+                document.getElementById(
+                    "btnGravar"
+                ).disabled = false;
 
 
-            if(audioURL){
+                stream
+                    .getTracks()
+                    .forEach(track => track.stop());
 
-                URL.revokeObjectURL(
-                    audioURL
-                );
-
-            }
-
-
-            audioURL =
-            URL.createObjectURL(
-                blob
-            );
-
-
-            document.getElementById(
-                "audioPlayer"
-            ).src =
-            audioURL;
-
-
-            document.getElementById(
-                "audioRelatorio"
-            ).src =
-            audioURL;
-
-
-            document.getElementById(
-                "statusAudio"
-            ).innerText =
-            "✅ Áudio gravado com sucesso!";
-
-
-            document.getElementById(
-                "btnGravar"
-            ).disabled =
-            false;
-
-
-            /*
-             * Libera o microfone depois da gravação.
-             */
-
-            if(streamMicrofone){
-
-                streamMicrofone
-                .getTracks()
-                .forEach(
-                    track => track.stop()
-                );
-
-            }
-
-
-            streamMicrofone =
-            null;
-
-            microfonePermitido =
-            false;
-
-        };
+            };
 
 
         gravador.start();
@@ -1773,21 +1609,19 @@ async function iniciarGravacao(){
 
         document.getElementById(
             "btnGravar"
-        ).disabled =
-        true;
+        ).disabled = true;
 
 
         document.getElementById(
             "statusAudio"
         ).innerText =
-        "🔴 GRAVANDO... Fale normalmente.";
+            "🔴 GRAVANDO... Fale normalmente. A fala aparecerá na OBSERVAÇÃO.";
 
 
         iniciarReconhecimento();
 
-    }
 
-    catch(erro){
+    }catch(erro){
 
         console.error(
             "Erro ao iniciar gravação:",
@@ -1795,33 +1629,62 @@ async function iniciarGravacao(){
         );
 
 
-        if(streamMicrofone){
+        document.getElementById(
+            "btnGravar"
+        ).disabled = false;
 
-            streamMicrofone
-            .getTracks()
-            .forEach(
-                track => track.stop()
-            );
+
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+            "❌ Não foi possível iniciar a gravação.";
+
+
+        alert(
+            "❌ Erro ao acessar o microfone.\n\n" +
+            "Verifique a permissão do navegador."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SALVAR TRANSCRIÇÃO FINAL
+===================================================== */
+
+function salvarTranscricaoFinal(){
+
+    const campo =
+        document.getElementById(
+            "observacao"
+        );
+
+
+    const transcricao =
+        textoTranscricaoFinal.trim();
+
+
+    if(transcricao){
+
+        let textoFinal =
+            textoAntesDaTranscricao;
+
+
+        if(textoFinal){
+
+            textoFinal += " ";
 
         }
 
 
-        streamMicrofone =
-        null;
-
-        microfonePermitido =
-        false;
+        textoFinal +=
+            transcricao;
 
 
-        document.getElementById(
-            "btnGravar"
-        ).disabled =
-        true;
-
-
-        mostrarErroMicrofone(
-            erro
-        );
+        campo.value =
+            textoFinal.trim();
 
     }
 
@@ -1834,31 +1697,57 @@ async function iniciarGravacao(){
 
 function pararGravacao(){
 
-    if(
-        gravador &&
-        gravador.state !== "inactive"
-    ){
+    salvarTranscricaoFinal();
 
-        gravador.stop();
 
-    }
+    deveReconhecer = false;
+
+    reconhecimentoAtivo = false;
 
 
     if(reconhecimento){
 
         try{
 
+            reconhecimento.onend = null;
+
             reconhecimento.stop();
 
-        }
+        }catch(e){
 
-        catch(e){
-
-            console.log(e);
+            console.log(
+                "Reconhecimento já estava parado."
+            );
 
         }
 
     }
+
+
+    if(
+        gravador &&
+        gravador.state !== "inactive"
+    ){
+
+        try{
+
+            gravador.stop();
+
+        }catch(e){
+
+            console.log(
+                "Gravador já estava parado."
+            );
+
+        }
+
+    }
+
+
+    document.getElementById(
+        "statusAudio"
+    ).innerText =
+        "⏹️ Gravação finalizada.";
 
 }
 
@@ -1870,126 +1759,289 @@ function pararGravacao(){
 function iniciarReconhecimento(){
 
     const SpeechRecognition =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
 
-
-    /*
-     * O reconhecimento de voz é opcional.
-     * A gravação continua funcionando mesmo
-     * se o navegador não possuir essa função.
-     */
 
     if(!SpeechRecognition){
 
-        console.log(
-            "Reconhecimento de voz não disponível."
+        console.warn(
+            "SpeechRecognition não está disponível."
         );
+
+
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+            "🔴 Áudio gravando. Seu navegador não possui transcrição automática.";
+
 
         return;
 
     }
 
 
+    deveReconhecer = true;
+
+    reconhecimentoAtivo = false;
+
+
+    const campo =
+        document.getElementById(
+            "observacao"
+        );
+
+
+    textoAntesDaTranscricao =
+        campo.value.trim();
+
+
+    textoTranscricaoFinal = "";
+
+
     reconhecimento =
-    new SpeechRecognition();
+        new SpeechRecognition();
 
 
     reconhecimento.lang =
-    "pt-BR";
+        "pt-BR";
 
 
     reconhecimento.continuous =
-    true;
+        true;
 
 
     reconhecimento.interimResults =
-    false;
+        true;
+
+
+    reconhecimento.maxAlternatives =
+        1;
+
+
+    reconhecimento.onstart =
+        function(){
+
+            reconhecimentoAtivo = true;
+
+
+            document.getElementById(
+                "statusAudio"
+            ).innerText =
+                "🔴 GRAVANDO... 🎙️ Pode falar. Sua fala aparecerá abaixo.";
+
+        };
 
 
     reconhecimento.onresult =
-    function(event){
+        function(event){
 
-        let texto = "";
+            let finais = "";
+
+            let parcial = "";
 
 
-        for(
-            let i = event.resultIndex;
-            i < event.results.length;
-            i++
-        ){
-
-            if(
-                event.results[i].isFinal
+            for(
+                let i = event.resultIndex;
+                i < event.results.length;
+                i++
             ){
 
-                texto +=
-                event.results[i][0].transcript +
-                " ";
+                const resultado =
+                    event.results[i];
+
+
+                const texto =
+                    resultado[0]
+                    .transcript
+                    .trim();
+
+
+                if(resultado.isFinal){
+
+                    if(texto){
+
+                        finais +=
+                            texto + " ";
+
+                    }
+
+                }else{
+
+                    if(texto){
+
+                        parcial +=
+                            texto + " ";
+
+                    }
+
+                }
 
             }
 
-        }
+
+            if(finais.trim()){
+
+                textoTranscricaoFinal +=
+                    finais.trim() + " ";
+
+            }
 
 
-        if(texto){
+            let textoCompleto =
+                textoAntesDaTranscricao;
 
-            const campo =
-            document.getElementById(
-                "observacao"
+
+            if(
+                textoTranscricaoFinal.trim()
+            ){
+
+                if(textoCompleto){
+
+                    textoCompleto += " ";
+
+                }
+
+
+                textoCompleto +=
+                    textoTranscricaoFinal.trim();
+
+            }
+
+
+            if(parcial.trim()){
+
+                if(textoCompleto){
+
+                    textoCompleto += " ";
+
+                }
+
+
+                textoCompleto +=
+                    parcial.trim();
+
+            }
+
+
+            campo.value =
+                textoCompleto.trim();
+
+
+            campo.focus();
+
+
+            campo.selectionStart =
+                campo.value.length;
+
+
+            campo.selectionEnd =
+                campo.value.length;
+
+
+            console.log(
+                "📝 Texto reconhecido:",
+                campo.value
             );
 
-
-            if(campo.value.trim()){
-
-                campo.value +=
-                " " + texto;
-
-            }
-
-            else{
-
-                campo.value =
-                texto;
-
-            }
-
-        }
-
-    };
+        };
 
 
     reconhecimento.onerror =
-    function(event){
+        function(event){
 
-        console.log(
-            "Reconhecimento de voz:",
-            event.error
-        );
+            console.warn(
+                "⚠️ Erro no reconhecimento:",
+                event.error
+            );
 
-    };
+
+            if(
+                event.error === "no-speech" ||
+                event.error === "aborted"
+            ){
+
+                return;
+
+            }
+
+
+            if(
+                event.error === "not-allowed"
+            ){
+
+                document.getElementById(
+                    "statusAudio"
+                ).innerText =
+                    "⚠️ O reconhecimento de voz não recebeu permissão. O áudio continua separado.";
+
+            }
+
+        };
 
 
     reconhecimento.onend =
-    function(){
+        function(){
 
-        console.log(
-            "Reconhecimento de voz encerrado."
-        );
+            reconhecimentoAtivo = false;
 
-    };
+
+            if(!deveReconhecer){
+
+                return;
+
+            }
+
+
+            if(
+                gravador &&
+                gravador.state === "recording"
+            ){
+
+                setTimeout(
+                    function(){
+
+                        if(
+                            !deveReconhecer ||
+                            !gravador ||
+                            gravador.state !== "recording"
+                        ){
+
+                            return;
+
+                        }
+
+
+                        try{
+
+                            reconhecimento.start();
+
+                        }catch(e){
+
+                            console.log(
+                                "Reconhecimento ainda não pode reiniciar:",
+                                e
+                            );
+
+                        }
+
+                    },
+                    500
+                );
+
+            }
+
+        };
 
 
     try{
 
         reconhecimento.start();
 
-    }
+    }catch(e){
 
-    catch(e){
-
-        console.log(
-            "Não foi possível iniciar reconhecimento:",
+        console.warn(
+            "Não foi possível iniciar o reconhecimento:",
             e
         );
 
@@ -1999,22 +2051,69 @@ function iniciarReconhecimento(){
 
 
 /* =====================================================
-   RELATÓRIO POR IA
+   GERAR RELATÓRIO COM IA
 ===================================================== */
 
 function gerarRelatorioIA(){
 
-    const observacao =
-    document.getElementById(
-        "observacao"
-    ).value.trim();
+    const campo =
+        document.getElementById(
+            "observacao"
+        );
+
+
+    let observacao =
+        campo.value.trim();
+
+
+    /*
+       CORREÇÃO:
+       Se a transcrição estiver guardada,
+       usa ela.
+    */
+
+    if(
+        !observacao &&
+        textoTranscricaoFinal.trim()
+    ){
+
+        observacao =
+            textoTranscricaoFinal.trim();
+
+
+        campo.value =
+            observacao;
+
+    }
+
+
+    /*
+       CORREÇÃO PRINCIPAL:
+       Mesmo que o áudio tenha sido gravado
+       mas não tenha sido transcrito,
+       o relatório poderá ser criado.
+    */
+
+    if(
+        !observacao &&
+        audioURL
+    ){
+
+        observacao =
+            "Ocorrência registrada por meio de áudio. " +
+            "O áudio gravado está anexado ao relatório.";
+
+
+        campo.value =
+            observacao;
+
+    }
 
 
     if(!observacao){
 
         alert(
-            "🎙️ Primeiro grave um áudio ou escreva " +
-            "a descrição da ocorrência."
+            "🎙️ Grave um áudio ou escreva a descrição da ocorrência."
         );
 
         return;
@@ -2023,42 +2122,40 @@ function gerarRelatorioIA(){
 
 
     const status =
-    document.getElementById(
-        "iaStatus"
-    );
+        document.getElementById(
+            "iaStatus"
+        );
 
 
     const textoIA =
-    document.getElementById(
-        "iaTexto"
-    );
+        document.getElementById(
+            "iaTexto"
+        );
 
 
     status.style.display =
-    "block";
+        "block";
 
 
     textoIA.innerText =
-    "🤖 Organizando as informações...";
+        "🤖 Organizando as informações...";
 
 
     setTimeout(
         function(){
 
             const textoOrganizado =
-            organizarTexto(
-                observacao
-            );
+                organizarTexto(
+                    observacao
+                );
 
 
-            document.getElementById(
-                "observacao"
-            ).value =
-            textoOrganizado;
+            campo.value =
+                textoOrganizado;
 
 
             textoIA.innerText =
-            "✅ Relatório organizado com sucesso!";
+                "✅ Relatório organizado com sucesso!";
 
 
             gerarRelatorio();
@@ -2077,7 +2174,7 @@ function gerarRelatorioIA(){
 function organizarTexto(texto){
 
     texto =
-    texto.trim();
+        texto.trim();
 
 
     if(texto.length < 10){
@@ -2088,8 +2185,8 @@ function organizarTexto(texto){
 
 
     let resultado =
-    texto.charAt(0).toUpperCase() +
-    texto.slice(1);
+        texto.charAt(0).toUpperCase() +
+        texto.slice(1);
 
 
     if(
@@ -2119,45 +2216,89 @@ function organizarTexto(texto){
 function gerarRelatorio(){
 
     const data =
-    document.getElementById(
-        "data"
-    ).value;
+        document.getElementById(
+            "data"
+        ).value;
 
 
     const inicio =
-    document.getElementById(
-        "inicio"
-    ).value;
+        document.getElementById(
+            "inicio"
+        ).value;
 
 
     const fim =
-    document.getElementById(
-        "fim"
-    ).value;
+        document.getElementById(
+            "fim"
+        ).value;
 
 
     const qra =
-    document.getElementById(
-        "qra"
-    ).value.trim();
+        document.getElementById(
+            "qra"
+        ).value.trim();
 
 
-    const obs =
-    document.getElementById(
-        "observacao"
-    ).value;
+    let obs =
+        document.getElementById(
+            "observacao"
+        ).value.trim();
 
 
     const respProva =
-    document.getElementById(
-        "responsavelProva"
-    ).value;
+        document.getElementById(
+            "responsavelProva"
+        ).value;
 
 
     const respRelatorio =
-    document.getElementById(
-        "responsavelRelatorio"
-    ).value;
+        document.getElementById(
+            "responsavelRelatorio"
+        ).value;
+
+
+    /*
+       Tenta recuperar a transcrição.
+    */
+
+    if(
+        !obs &&
+        textoTranscricaoFinal.trim()
+    ){
+
+        obs =
+            textoTranscricaoFinal.trim();
+
+
+        document.getElementById(
+            "observacao"
+        ).value =
+            obs;
+
+    }
+
+
+    /*
+       Se existe áudio mas não existe texto,
+       coloca uma informação no relatório.
+    */
+
+    if(
+        !obs &&
+        audioURL
+    ){
+
+        obs =
+            "Ocorrência registrada por meio de áudio. " +
+            "O áudio gravado está anexado ao relatório.";
+
+
+        document.getElementById(
+            "observacao"
+        ).value =
+            obs;
+
+    }
 
 
     if(!qra){
@@ -2174,62 +2315,60 @@ function gerarRelatorio(){
     document.getElementById(
         "rData"
     ).innerText =
-    formatarData(data);
+        formatarData(data);
 
 
     document.getElementById(
         "rInicio"
     ).innerText =
-    inicio || "--:--";
+        inicio || "--:--";
 
 
     document.getElementById(
         "rFim"
     ).innerText =
-    fim || "--:--";
+        fim || "--:--";
 
 
     document.getElementById(
         "rQra"
     ).innerText =
-    qra;
+        qra;
 
 
     document.getElementById(
         "rObs"
     ).innerText =
-    obs ||
-    "Nenhuma observação informada.";
+        obs ||
+        "Nenhuma observação informada.";
 
 
     document.getElementById(
         "rResponsavelProva"
     ).innerText =
-    respProva ||
-    "Não informado";
+        respProva ||
+        "Não informado";
 
 
     document.getElementById(
         "rResponsavelRelatorio"
     ).innerText =
-    respRelatorio ||
-    "Não informado";
+        respRelatorio ||
+        "Não informado";
 
 
-    /* =========================
-       IMAGEM
-    ========================= */
+    /* IMAGEM */
 
     const imagem =
-    document.getElementById(
-        "previewImagem"
-    );
+        document.getElementById(
+            "previewImagem"
+        );
 
 
     const imagemRelatorio =
-    document.getElementById(
-        "imagemRelatorio"
-    );
+        document.getElementById(
+            "imagemRelatorio"
+        );
 
 
     if(
@@ -2238,51 +2377,45 @@ function gerarRelatorio(){
     ){
 
         imagemRelatorio.src =
-        imagem.src;
+            imagem.src;
 
 
         document.getElementById(
             "blocoImagem"
         ).style.display =
-        "block";
+            "block";
 
-    }
-
-    else{
+    }else{
 
         document.getElementById(
             "blocoImagem"
         ).style.display =
-        "none";
+            "none";
 
     }
 
 
-    /* =========================
-       ÁUDIO
-    ========================= */
+    /* ÁUDIO */
 
     if(audioURL){
 
         document.getElementById(
             "audioRelatorio"
         ).src =
-        audioURL;
+            audioURL;
 
 
         document.getElementById(
             "blocoAudio"
         ).style.display =
-        "block";
+            "block";
 
-    }
-
-    else{
+    }else{
 
         document.getElementById(
             "blocoAudio"
         ).style.display =
-        "none";
+            "none";
 
     }
 
@@ -2306,14 +2439,7 @@ function formatarData(data){
 
 
     const partes =
-    data.split("-");
-
-
-    if(partes.length !== 3){
-
-        return data;
-
-    }
+        data.split("-");
 
 
     return (
@@ -2331,9 +2457,21 @@ function formatarData(data){
 
 function limparTudo(){
 
-    /*
-     * Para a gravação.
-     */
+    deveReconhecer = false;
+
+
+    if(reconhecimento){
+
+        try{
+
+            reconhecimento.onend = null;
+
+            reconhecimento.stop();
+
+        }catch(e){}
+
+    }
+
 
     if(
         gravador &&
@@ -2344,136 +2482,91 @@ function limparTudo(){
 
             gravador.stop();
 
-        }
-
-        catch(e){}
+        }catch(e){}
 
     }
-
-
-    if(reconhecimento){
-
-        try{
-
-            reconhecimento.stop();
-
-        }
-
-        catch(e){}
-
-    }
-
-
-    if(streamMicrofone){
-
-        streamMicrofone
-        .getTracks()
-        .forEach(
-            track => track.stop()
-        );
-
-    }
-
-
-    streamMicrofone =
-    null;
-
-    microfonePermitido =
-    false;
 
 
     document.getElementById(
         "qra"
-    ).value =
-    "";
+    ).value = "";
 
 
     document.getElementById(
         "inicio"
-    ).value =
-    "";
+    ).value = "";
 
 
     document.getElementById(
         "fim"
-    ).value =
-    "";
+    ).value = "";
 
 
     document.getElementById(
         "observacao"
-    ).value =
-    "";
+    ).value = "";
 
 
     document.getElementById(
         "responsavelProva"
-    ).value =
-    "";
+    ).value = "";
 
 
     document.getElementById(
         "responsavelRelatorio"
-    ).value =
-    "";
+    ).value = "";
 
 
     document.getElementById(
         "imagem"
-    ).value =
-    "";
+    ).value = "";
 
 
     document.getElementById(
         "previewImagem"
-    ).src =
-    "";
+    ).src = "";
 
 
     document.getElementById(
         "previewImagem"
-    ).style.display =
-    "none";
+    ).style.display = "none";
 
 
     document.getElementById(
         "audioPlayer"
-    ).src =
-    "";
+    ).src = "";
 
 
     document.getElementById(
         "audioRelatorio"
-    ).src =
-    "";
+    ).src = "";
 
 
     document.getElementById(
         "statusAudio"
     ).innerText =
-    "Pronto para gravar.";
+        "Pronto para gravar.";
 
 
     document.getElementById(
         "iaStatus"
     ).style.display =
-    "none";
+        "none";
 
 
     document.getElementById(
         "permissaoMicrofone"
     ).style.display =
-    "block";
+        "block";
 
 
     document.getElementById(
         "btnGravar"
     ).disabled =
-    true;
+        true;
 
 
-    partesAudio =
-    [];
+    partesAudio = [];
 
 
     if(audioURL){
@@ -2485,8 +2578,28 @@ function limparTudo(){
     }
 
 
-    audioURL =
-    null;
+    audioURL = null;
+
+    microfonePermitido = false;
+
+    reconhecimento = null;
+
+    reconhecimentoAtivo = false;
+
+    textoTranscricaoFinal = "";
+
+    textoAntesDaTranscricao = "";
+
+
+    /* coloca a data de hoje novamente */
+
+    document.getElementById(
+        "data"
+    ).value =
+        ano + "-" + mes + "-" + dia;
+
+
+    mostrar("formulario");
 
 }
 
@@ -2497,114 +2610,31 @@ function limparTudo(){
 
 async function verificarMicrofone(){
 
-    const status =
-    document.getElementById(
-        "statusAudio"
-    );
-
-
     if(
         !navigator.mediaDevices ||
         !navigator.mediaDevices.getUserMedia
     ){
 
-        status.innerText =
-        "❌ O navegador não disponibilizou o microfone.";
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+            "❌ Seu navegador não permite acesso ao microfone.";
 
         return;
 
     }
 
 
-    /*
-     * Mostra se a página está em contexto seguro.
-     */
-
-    if(!window.isSecureContext){
-
-        status.innerText =
-        "⚠️ Tente abrir o sistema pelo localhost.";
-
-        console.warn(
-            "A página não está em contexto seguro:",
-            window.location.href
-        );
-
-        return;
-
-    }
-
-
-    /*
-     * Verifica a permissão quando o navegador
-     * disponibiliza a API Permissions.
-     */
-
-    try{
-
-        if(navigator.permissions){
-
-            const permissao =
-            await navigator.permissions.query({
-                name:"microphone"
-            });
-
-
-            console.log(
-                "Permissão do microfone:",
-                permissao.state
-            );
-
-
-            if(
-                permissao.state === "denied"
-            ){
-
-                status.innerText =
-                "🚫 Microfone bloqueado nas permissões do navegador.";
-
-            }
-
-            else if(
-                permissao.state === "granted"
-            ){
-
-                status.innerText =
-                "✅ Microfone autorizado. Clique para continuar.";
-
-            }
-
-            else{
-
-                status.innerText =
-                "🔐 Clique em PERMITIR MICROFONE.";
-
-            }
-
-            return;
-
-        }
-
-    }
-
-    catch(e){
-
-        console.log(
-            "Não foi possível verificar a permissão:",
-            e
-        );
-
-    }
-
-
-    status.innerText =
-    "🔐 Clique em PERMITIR MICROFONE.";
+    document.getElementById(
+        "statusAudio"
+    ).innerText =
+        "🔐 Autorize o microfone para começar.";
 
 }
 
 
 /* =====================================================
-   INICIAR SISTEMA
+   INICIAR
 ===================================================== */
 
 verificarMicrofone();
@@ -2614,5 +2644,4 @@ mostrar("ensino");
 </script>
 
 </body>
-
 </html>
