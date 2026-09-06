@@ -154,11 +154,6 @@ textarea{
     color:white;
 }
 
-.btn-azul{
-    background:#2563eb;
-    color:white;
-}
-
 .btn:hover{
     opacity:.85;
 }
@@ -239,8 +234,6 @@ audio{
     padding:0;
     background:#050505;
     color:#fff;
-    border:0;
-    box-shadow:none;
 }
 
 .relatorio-page{
@@ -249,7 +242,6 @@ audio{
     background:#050505;
     border:2px solid #eab308;
     padding:18px 24px 24px;
-    box-shadow:0 0 18px rgba(0,0,0,.65);
 }
 
 .relatorio-page::before{
@@ -261,7 +253,6 @@ audio{
     bottom:14px;
     border:1px solid #eab308;
     pointer-events:none;
-    opacity:.95;
 }
 
 .relatorio-cabecalho{
@@ -302,21 +293,17 @@ audio{
 
 .eps-logo .eps-text{
     font-size:28px;
-    line-height:1;
 }
 
 .eps-logo .eps-wing{
     color:#eab308;
     font-size:36px;
-    line-height:1;
     margin-top:9px;
 }
 
 .eps-logo .eps-star{
     color:#eab308;
     font-size:23px;
-    line-height:1;
-    margin-top:2px;
 }
 
 .relatorio-titulo{
@@ -326,7 +313,6 @@ audio{
     line-height:1;
     font-weight:900;
     letter-spacing:1px;
-    white-space:nowrap;
 }
 
 .relatorio-titulo span{
@@ -342,7 +328,6 @@ audio{
     border:2px solid #333;
     border-radius:12px;
     overflow:hidden;
-    background:#050505;
 }
 
 .relatorio-info-item{
@@ -360,8 +345,6 @@ audio{
 
 .info-icone{
     font-size:39px;
-    filter:grayscale(1) brightness(1.6);
-    line-height:1;
 }
 
 .info-label{
@@ -375,7 +358,6 @@ audio{
 .info-valor{
     color:#fff;
     font-size:26px;
-    font-weight:500;
 }
 
 .relatorio-conteudo{
@@ -418,7 +400,6 @@ audio{
     color:#f5b400;
     font-size:25px;
     margin:0 0 7px;
-    font-weight:800;
 }
 
 .relatorio-campo p{
@@ -433,49 +414,22 @@ audio{
     position:relative;
     z-index:1;
     margin-top:10px;
-    padding:10px 0 0;
+    padding-top:10px;
 }
 
 .relatorio-evidencia h3{
     color:#f5b400;
     font-size:24px;
-    margin:0 0 10px;
+    margin-bottom:10px;
 }
 
 #imagemRelatorio{
     display:block;
     width:100%;
-    max-width:100%;
     max-height:650px;
     object-fit:contain;
     margin:0 auto;
     border:2px solid #eab308;
-    border-radius:0;
-    background:#050505;
-}
-
-.relatorio-audio{
-    position:relative;
-    z-index:1;
-    margin-top:15px;
-    padding-top:14px;
-    border-top:1px solid #eab308;
-}
-
-.relatorio-audio h3{
-    color:#f5b400;
-    margin-bottom:8px;
-}
-
-#relatorio .acoes-relatorio{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    padding-top:18px;
-}
-
-#relatorio .acoes-relatorio .btn{
-    margin:5px;
 }
 
 .ia-status{
@@ -491,11 +445,18 @@ audio{
     color:#f5b400;
 }
 
-@media(max-width:800px){
+#relatorio .acoes-relatorio{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding-top:18px;
+}
 
-    .relatorio-page{
-        padding:12px 10px 18px;
-    }
+#relatorio .acoes-relatorio .btn{
+    margin:5px;
+}
+
+@media(max-width:800px){
 
     .relatorio-cabecalho{
         gap:12px;
@@ -526,7 +487,6 @@ audio{
 
     .relatorio-titulo{
         font-size:27px;
-        white-space:normal;
     }
 
     .relatorio-info{
@@ -536,10 +496,6 @@ audio{
     .relatorio-info-item{
         border-right:0;
         border-bottom:1px solid #555;
-    }
-
-    .relatorio-info-item:last-child{
-        border-bottom:0;
     }
 
     .relatorio-linha{
@@ -621,18 +577,6 @@ audio{
         display:block !important;
         max-width:none !important;
         margin:0 !important;
-        background:#050505 !important;
-        color:#fff !important;
-    }
-
-    .relatorio-page{
-        border:2px solid #eab308 !important;
-        box-shadow:none !important;
-        min-height:0;
-    }
-
-    .relatorio-page::before{
-        display:block !important;
     }
 
     #relatorio .acoes-relatorio{
@@ -642,6 +586,11 @@ audio{
     #imagemRelatorio{
         max-height:470px !important;
     }
+
+    /* O áudio NÃO aparece no PDF */
+    .relatorio-audio{
+        display:none !important;
+    }
 }
 
 </style>
@@ -650,10 +599,12 @@ audio{
 <body>
 
 <header>
+
 <h1>
 RELATÓRIO DE PROVA —
 <span>E.P.S</span>
 </h1>
+
 </header>
 
 <div class="menu">
@@ -667,7 +618,7 @@ RELATÓRIO DE PROVA —
 </button>
 
 <button onclick="gerarRelatorioIA()">
-🤖 Relatório por IA
+🤖 Transformar áudio em relatório
 </button>
 
 <button onclick="mostrar('relatorio')">
@@ -680,60 +631,43 @@ RELATÓRIO DE PROVA —
 
 <section id="ensino" class="card">
 
-<h2>
-📚 Como fazer um relatório
-</h2>
+<h2>📚 Como fazer um relatório</h2>
 
 <div class="passo">
 <strong>1 — Identifique a ocorrência</strong>
-<p>
-Informe a data, horário e outras informações importantes.
-</p>
+<p>Informe a data, horário e outras informações importantes.</p>
 </div>
 
 <div class="passo">
 <strong>2 — Informe o QRA</strong>
-<p>
-Coloque a identificação ou nome da pessoa envolvida.
-</p>
+<p>Coloque a identificação ou nome da pessoa envolvida.</p>
 </div>
 
 <div class="passo">
 <strong>3 — Conte o que aconteceu</strong>
-<p>
-Você pode escrever ou simplesmente falar usando o microfone.
-</p>
+<p>Você pode escrever ou falar usando o microfone.</p>
 </div>
 
 <div class="passo">
 <strong>4 — Grave o áudio</strong>
-<p>
-Clique em "PERMITIR MICROFONE" e depois em
-"INICIAR GRAVAÇÃO". Fale normalmente explicando tudo o que aconteceu.
-</p>
+<p>Permita o microfone, inicie a gravação e fale normalmente.</p>
 </div>
 
 <div class="passo">
-<strong>5 — Gere com IA</strong>
-<p>
-A IA irá transformar o conteúdo falado em uma descrição organizada para o relatório.
-</p>
+<strong>5 — Transforme o áudio em relatório</strong>
+<p>A IA transforma o conteúdo falado em texto organizado.</p>
 </div>
 
 <div class="passo">
 <strong>6 — Revise e salve</strong>
-<p>
-Confira o relatório e use a opção de imprimir para salvar como PDF.
-</p>
+<p>Confira o relatório e salve em PDF.</p>
 </div>
 
 </section>
 
 <section id="formulario" class="card">
 
-<h2>
-📝 Criar relatório
-</h2>
+<h2>📝 Criar relatório</h2>
 
 <div class="grid">
 
@@ -754,10 +688,7 @@ Confira o relatório e use a opção de imprimir para salvar como PDF.
 
 <div class="campo">
 <label>QRA</label>
-<input
-type="text"
-id="qra"
-placeholder="Ex: Dk Zangado">
+<input type="text" id="qra" placeholder="Ex: Dk Zangado">
 </div>
 
 <div class="campo">
@@ -776,21 +707,17 @@ placeholder="Ex: Dk Zangado">
 
 <div class="campo">
 
-<label>
-OBSERVAÇÃO / DESCRIÇÃO
-</label>
+<label>OBSERVAÇÃO / DESCRIÇÃO</label>
 
 <textarea
 id="observacao"
-placeholder="Você pode escrever aqui ou usar o microfone..."></textarea>
+placeholder="Você pode escrever aqui ou transformar um áudio em relatório..."></textarea>
 
 </div>
 
 <div class="audio-box">
 
-<h2>
-🎙️ Falar para criar o relatório
-</h2>
+<h2>🎙️ Falar para criar o relatório</h2>
 
 <p>
 Permita o acesso ao microfone para gravar sua descrição.
@@ -802,7 +729,6 @@ Permita o acesso ao microfone para gravar sua descrição.
 
 <p style="margin-top:8px;color:#ccc;">
 Clique em "PERMITIR MICROFONE".
-O navegador irá perguntar se este site pode usar seu microfone.
 </p>
 
 <button
@@ -837,10 +763,7 @@ onclick="pararGravacao()">
 
 </button>
 
-<audio
-id="audioPlayer"
-controls>
-</audio>
+<audio id="audioPlayer" controls></audio>
 
 <br>
 
@@ -852,13 +775,9 @@ onclick="gerarRelatorioIA()">
 
 </button>
 
-<div
-id="iaStatus"
-class="ia-status">
+<div id="iaStatus" class="ia-status">
 
-<strong>
-🤖 IA:
-</strong>
+<strong>🤖 IA:</strong>
 
 <span id="iaTexto">
 Aguardando informações...
@@ -868,13 +787,9 @@ Aguardando informações...
 
 </div>
 
-<div
-class="campo"
-style="margin-top:25px">
+<div class="campo" style="margin-top:25px">
 
-<label>
-🖼️ Imagem / Evidência
-</label>
+<label>🖼️ Imagem / Evidência</label>
 
 <input
 type="file"
@@ -918,9 +833,7 @@ onclick="limparTudo()">
 
 <div class="relatorio-cabecalho">
 
-<div
-class="eps-logo"
-aria-label="E.P.S">
+<div class="eps-logo">
 
 <div class="eps-text">
 E.P.S
@@ -949,9 +862,7 @@ RELATÓRIO DE PROVA —
 
 <div class="relatorio-info-item">
 
-<div class="info-icone">
-▣
-</div>
+<div class="info-icone">▣</div>
 
 <div>
 
@@ -970,9 +881,7 @@ id="rData">
 
 <div class="relatorio-info-item">
 
-<div class="info-icone">
-◷
-</div>
+<div class="info-icone">◷</div>
 
 <div>
 
@@ -991,9 +900,7 @@ id="rInicio">
 
 <div class="relatorio-info-item">
 
-<div class="info-icone">
-◷
-</div>
+<div class="info-icone">◷</div>
 
 <div>
 
@@ -1016,15 +923,11 @@ id="rFim">
 
 <div class="relatorio-linha">
 
-<div class="relatorio-icone">
-▣
-</div>
+<div class="relatorio-icone">▣</div>
 
 <div class="relatorio-campo">
 
-<h3>
-QRA:
-</h3>
+<h3>QRA:</h3>
 
 <p id="rQra"></p>
 
@@ -1034,15 +937,11 @@ QRA:
 
 <div class="relatorio-linha">
 
-<div class="relatorio-icone">
-●
-</div>
+<div class="relatorio-icone">●</div>
 
 <div class="relatorio-campo">
 
-<h3>
-OBS:
-</h3>
+<h3>OBS:</h3>
 
 <p id="rObs"></p>
 
@@ -1052,15 +951,11 @@ OBS:
 
 <div class="relatorio-linha">
 
-<div class="relatorio-icone">
-▤
-</div>
+<div class="relatorio-icone">▤</div>
 
 <div class="relatorio-campo">
 
-<h3>
-RESPONSÁVEL PELA PROVA:
-</h3>
+<h3>RESPONSÁVEL PELA PROVA:</h3>
 
 <p id="rResponsavelProva"></p>
 
@@ -1070,15 +965,11 @@ RESPONSÁVEL PELA PROVA:
 
 <div class="relatorio-linha">
 
-<div class="relatorio-icone">
-✎
-</div>
+<div class="relatorio-icone">✎</div>
 
 <div class="relatorio-campo">
 
-<h3>
-RESPONSÁVEL PELO RELATÓRIO:
-</h3>
+<h3>RESPONSÁVEL PELO RELATÓRIO:</h3>
 
 <p id="rResponsavelRelatorio"></p>
 
@@ -1092,9 +983,7 @@ RESPONSÁVEL PELO RELATÓRIO:
 class="relatorio-evidencia"
 id="blocoImagem">
 
-<h3>
-🖼️ EVIDÊNCIA:
-</h3>
+<h3>🖼️ EVIDÊNCIA:</h3>
 
 <img
 id="imagemRelatorio"
@@ -1102,13 +991,16 @@ alt="Evidência do relatório">
 
 </div>
 
+<!--
+     O áudio fica disponível durante a edição,
+     mas NÃO entra no relatório/PDF.
+-->
+
 <div
 class="relatorio-audio"
 id="blocoAudio">
 
-<h3>
-🎙️ ÁUDIO:
-</h3>
+<h3>🎙️ ÁUDIO UTILIZADO PELA IA:</h3>
 
 <audio
 id="audioRelatorio"
@@ -1156,8 +1048,8 @@ let audioURL = null;
 let audioBlob = null;
 
 let reconhecimento = null;
-
 let microfonePermitido = false;
+
 let reconhecimentoAtivo = false;
 let deveReconhecer = false;
 
@@ -1184,7 +1076,7 @@ function mostrar(secao){
 
 
 /* =====================================================
-   DATA AUTOMÁTICA
+   DATA
 ===================================================== */
 
 const hoje = new Date();
@@ -1224,1154 +1116,6 @@ function carregarImagem(event){
 
         img.style.display = "block";
 
-    };
-
-    leitor.readAsDataURL(arquivo);
-}
-
-
-/* =====================================================
-   PERMISSÃO MICROFONE
-===================================================== */
-
-async function pedirPermissaoMicrofone(){
-
-    try{
-
-        if(
-            !navigator.mediaDevices ||
-            !navigator.mediaDevices.getUserMedia
-        ){
-
-            alert(
-                "Seu navegador não permite acesso ao microfone."
-            );
-
-            return;
-        }
-
-        const stream =
-            await navigator.mediaDevices.getUserMedia({
-
-                audio:{
-                    echoCancellation:true,
-                    noiseSuppression:true,
-                    autoGainControl:true
-                }
-
-            });
-
-        stream.getTracks().forEach(
-            track => track.stop()
-        );
-
-        microfonePermitido = true;
-
-        document.getElementById(
-            "permissaoMicrofone"
-        ).style.display = "none";
-
-        document.getElementById(
-            "btnGravar"
-        ).disabled = false;
-
-        document.getElementById(
-            "statusAudio"
-        ).innerText =
-            "✅ Microfone autorizado. Você já pode gravar.";
-
-    }catch(erro){
-
-        console.error(
-            "Erro na permissão:",
-            erro
-        );
-
-        microfonePermitido = false;
-
-        document.getElementById(
-            "statusAudio"
-        ).innerText =
-            "⚠️ Microfone não autorizado.";
-
-        alert(
-            "❌ Não foi possível acessar o microfone.\n\n" +
-            "Quando o navegador perguntar, clique em 'Permitir'.\n\n" +
-            "Se você bloqueou anteriormente, abra as configurações/permissões do site e permita o uso do microfone."
-        );
-    }
-}
-
-
-/* =====================================================
-   INICIAR GRAVAÇÃO
-===================================================== */
-
-async function iniciarGravacao(){
-
-    try{
-
-        if(!microfonePermitido){
-
-            await pedirPermissaoMicrofone();
-
-            if(!microfonePermitido){
-                return;
-            }
-        }
-
-        const stream =
-            await navigator.mediaDevices.getUserMedia({
-
-                audio:{
-                    echoCancellation:true,
-                    noiseSuppression:true,
-                    autoGainControl:true
-                }
-
-            });
-
-        partesAudio = [];
-        audioBlob = null;
-
-        let tipoAudio = "";
-
-        if(
-            typeof MediaRecorder !== "undefined" &&
-            MediaRecorder.isTypeSupported(
-                "audio/webm;codecs=opus"
-            )
-        ){
-
-            tipoAudio =
-                "audio/webm;codecs=opus";
-
-        }else if(
-
-            typeof MediaRecorder !== "undefined" &&
-            MediaRecorder.isTypeSupported(
-                "audio/webm"
-            )
-
-        ){
-
-            tipoAudio =
-                "audio/webm";
-        }
-
-        gravador =
-            tipoAudio
-            ? new MediaRecorder(
-                stream,
-                {
-                    mimeType:tipoAudio
-                }
-            )
-            : new MediaRecorder(stream);
-
-
-        gravador.ondataavailable =
-            function(event){
-
-                if(event.data.size > 0){
-
-                    partesAudio.push(
-                        event.data
-                    );
-                }
-            };
-
-
-        gravador.onstop =
-            function(){
-
-                audioBlob =
-                    new Blob(
-                        partesAudio,
-                        {
-                            type:
-                                gravador.mimeType ||
-                                "audio/webm"
-                        }
-                    );
-
-                if(audioURL){
-
-                    URL.revokeObjectURL(
-                        audioURL
-                    );
-                }
-
-                audioURL =
-                    URL.createObjectURL(
-                        audioBlob
-                    );
-
-                document.getElementById(
-                    "audioPlayer"
-                ).src =
-                    audioURL;
-
-                document.getElementById(
-                    "audioRelatorio"
-                ).src =
-                    audioURL;
-
-                document.getElementById(
-                    "statusAudio"
-                ).innerText =
-                    "✅ Áudio gravado com sucesso! Agora clique em TRANSFORMAR ÁUDIO EM RELATÓRIO.";
-
-                document.getElementById(
-                    "btnGravar"
-                ).disabled =
-                    false;
-
-                stream.getTracks().forEach(
-                    track => track.stop()
-                );
-            };
-
-
-        gravador.start();
-
-        document.getElementById(
-            "btnGravar"
-        ).disabled =
-            true;
-
-        document.getElementById(
-            "statusAudio"
-        ).innerText =
-            "🔴 GRAVANDO... Fale normalmente.";
-
-        iniciarReconhecimento();
-
-    }catch(erro){
-
-        console.error(
-            "Erro ao iniciar gravação:",
-            erro
-        );
-
-        document.getElementById(
-            "btnGravar"
-        ).disabled =
-            false;
-
-        document.getElementById(
-            "statusAudio"
-        ).innerText =
-            "❌ Não foi possível iniciar a gravação.";
-
-        alert(
-            "❌ Erro ao acessar o microfone.\n\n" +
-            "Verifique a permissão do navegador."
-        );
-    }
-}
-
-
-/* =====================================================
-   SALVAR TRANSCRIÇÃO
-===================================================== */
-
-function salvarTranscricaoFinal(){
-
-    const campo =
-        document.getElementById(
-            "observacao"
-        );
-
-    const transcricao =
-        textoTranscricaoFinal.trim();
-
-    if(transcricao){
-
-        let textoFinal =
-            textoAntesDaTranscricao;
-
-        if(textoFinal){
-            textoFinal += " ";
-        }
-
-        textoFinal += transcricao;
-
-        campo.value =
-            textoFinal.trim();
-    }
-}
-
-
-/* =====================================================
-   PARAR GRAVAÇÃO
-===================================================== */
-
-function pararGravacao(){
-
-    salvarTranscricaoFinal();
-
-    deveReconhecer = false;
-    reconhecimentoAtivo = false;
-
-    if(reconhecimento){
-
-        try{
-
-            reconhecimento.onend = null;
-            reconhecimento.stop();
-
-        }catch(e){
-            console.log(
-                "Reconhecimento já estava parado."
-            );
-        }
-    }
-
-    if(
-        gravador &&
-        gravador.state !== "inactive"
-    ){
-
-        try{
-
-            gravador.stop();
-
-        }catch(e){
-
-            console.log(
-                "Gravador já estava parado."
-            );
-        }
-    }
-
-    document.getElementById(
-        "statusAudio"
-    ).innerText =
-        "⏹️ Gravação finalizada.";
-
-}
-
-
-/* =====================================================
-   RECONHECIMENTO DE VOZ
-===================================================== */
-
-function iniciarReconhecimento(){
-
-    const SpeechRecognition =
-        window.SpeechRecognition ||
-        window.webkitSpeechRecognition;
-
-    if(!SpeechRecognition){
-
-        console.warn(
-            "SpeechRecognition não está disponível."
-        );
-
-        return;
-    }
-
-    deveReconhecer = true;
-    reconhecimentoAtivo = false;
-
-    const campo =
-        document.getElementById(
-            "observacao"
-        );
-
-    textoAntesDaTranscricao =
-        campo.value.trim();
-
-    textoTranscricaoFinal = "";
-
-    reconhecimento =
-        new SpeechRecognition();
-
-    reconhecimento.lang =
-        "pt-BR";
-
-    reconhecimento.continuous =
-        true;
-
-    reconhecimento.interimResults =
-        true;
-
-    reconhecimento.maxAlternatives =
-        1;
-
-
-    reconhecimento.onstart =
-        function(){
-
-            reconhecimentoAtivo = true;
-
-            document.getElementById(
-                "statusAudio"
-            ).innerText =
-                "🔴 GRAVANDO... 🎙️ Pode falar.";
-
-        };
-
-
-    reconhecimento.onresult =
-        function(event){
-
-            let finais = "";
-            let parcial = "";
-
-            for(
-                let i = event.resultIndex;
-                i < event.results.length;
-                i++
-            ){
-
-                const resultado =
-                    event.results[i];
-
-                const texto =
-                    resultado[0]
-                    .transcript
-                    .trim();
-
-                if(resultado.isFinal){
-
-                    if(texto){
-                        finais +=
-                            texto + " ";
-                    }
-
-                }else{
-
-                    if(texto){
-                        parcial +=
-                            texto + " ";
-                    }
-                }
-            }
-
-            if(finais.trim()){
-
-                textoTranscricaoFinal +=
-                    finais.trim() + " ";
-            }
-
-            let textoCompleto =
-                textoAntesDaTranscricao;
-
-            if(textoTranscricaoFinal.trim()){
-
-                if(textoCompleto){
-                    textoCompleto += " ";
-                }
-
-                textoCompleto +=
-                    textoTranscricaoFinal.trim();
-            }
-
-            if(parcial.trim()){
-
-                if(textoCompleto){
-                    textoCompleto += " ";
-                }
-
-                textoCompleto +=
-                    parcial.trim();
-            }
-
-            campo.value =
-                textoCompleto.trim();
-
-        };
-
-
-    reconhecimento.onerror =
-        function(event){
-
-            console.warn(
-                "Erro no reconhecimento:",
-                event.error
-            );
-
-            if(
-                event.error === "not-allowed"
-            ){
-
-                document.getElementById(
-                    "statusAudio"
-                ).innerText =
-                    "⚠️ Reconhecimento de voz sem permissão. O áudio continua gravado.";
-
-            }
-        };
-
-
-    reconhecimento.onend =
-        function(){
-
-            reconhecimentoAtivo = false;
-
-            if(!deveReconhecer){
-                return;
-            }
-
-            if(
-                gravador &&
-                gravador.state === "recording"
-            ){
-
-                setTimeout(
-                    function(){
-
-                        if(
-                            !deveReconhecer ||
-                            !gravador ||
-                            gravador.state !== "recording"
-                        ){
-                            return;
-                        }
-
-                        try{
-
-                            reconhecimento.start();
-
-                        }catch(e){
-
-                            console.log(
-                                "Reconhecimento ainda não pode reiniciar."
-                            );
-                        }
-
-                    },
-                    500
-                );
-            }
-        };
-
-
-    try{
-
-        reconhecimento.start();
-
-    }catch(e){
-
-        console.warn(
-            "Não foi possível iniciar reconhecimento:",
-            e
-        );
-    }
-}
-
-
-/* =====================================================
-   IA REAL — TRANSFORMAR ÁUDIO EM RELATÓRIO
-===================================================== */
-
-async function gerarRelatorioIA(){
-
-    const status =
-        document.getElementById(
-            "iaStatus"
-        );
-
-    const textoIA =
-        document.getElementById(
-            "iaTexto"
-        );
-
-    const campo =
-        document.getElementById(
-            "observacao"
-        );
-
-
-    /*
-       Primeiro verifica se existe
-       um áudio realmente gravado.
-    */
-
-    if(!audioBlob){
-
-        /*
-           Caso a transcrição do navegador
-           já exista, podemos usar o texto.
-        */
-
-        salvarTranscricaoFinal();
-
-        if(
-            campo.value.trim()
-        ){
-
-            /*
-               Continua usando o texto.
-            */
-
-        }else{
-
-            alert(
-                "🎙️ Primeiro grave um áudio e clique em PARAR."
-            );
-
-            return;
-        }
-    }
-
-
-    status.style.display = "block";
-
-    textoIA.innerText =
-        "🤖 A IA está analisando o áudio...";
-
-
-    try{
-
-        let resposta;
-
-
-        /*
-           Se existe áudio gravado,
-           envia o arquivo para o servidor.
-        */
-
-        if(audioBlob){
-
-            const formulario =
-                new FormData();
-
-            formulario.append(
-                "audio",
-                audioBlob,
-                "gravacao.webm"
-            );
-
-
-            resposta =
-                await fetch(
-                    "/api/transformar-audio",
-                    {
-                        method:"POST",
-                        body:formulario
-                    }
-                );
-
-        }else{
-
-            /*
-               Se não houver áudio, envia
-               o texto existente.
-            */
-
-            resposta =
-                await fetch(
-                    "/api/organizar-texto",
-                    {
-                        method:"POST",
-
-                        headers:{
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body:JSON.stringify({
-                            texto:
-                                campo.value.trim()
-                        })
-                    }
-                );
-        }
-
-
-        if(!resposta.ok){
-
-            let mensagem =
-                "Erro ao conversar com a IA.";
-
-            try{
-
-                const erro =
-                    await resposta.json();
-
-                if(erro.erro){
-                    mensagem =
-                        erro.erro;
-                }
-
-            }catch(e){}
-
-            throw new Error(
-                mensagem
-            );
-        }
-
-
-        const dados =
-            await resposta.json();
-
-
-        if(
-            !dados.relatorio
-        ){
-
-            throw new Error(
-                "A IA não retornou o relatório."
-            );
-        }
-
-
-        /*
-           Coloca o resultado da IA
-           diretamente na OBSERVAÇÃO.
-        */
-
-        campo.value =
-            dados.relatorio;
-
-
-        textoIA.innerText =
-            "✅ Áudio transformado em relatório com sucesso!";
-
-
-        /*
-           Atualiza o relatório.
-        */
-
-        gerarRelatorio();
-
-
-    }catch(erro){
-
-        console.error(
-            "Erro na IA:",
-            erro
-        );
-
-        textoIA.innerText =
-            "❌ Não foi possível transformar o áudio.";
-
-        alert(
-            "❌ Erro ao transformar o áudio.\n\n" +
-            erro.message
-        );
-    }
-}
-
-
-/* =====================================================
-   GERAR RELATÓRIO
-===================================================== */
-
-function gerarRelatorio(){
-
-    const data =
-        document.getElementById(
-            "data"
-        ).value;
-
-    const inicio =
-        document.getElementById(
-            "inicio"
-        ).value;
-
-    const fim =
-        document.getElementById(
-            "fim"
-        ).value;
-
-    const qra =
-        document.getElementById(
-            "qra"
-        ).value.trim();
-
-    const obs =
-        document.getElementById(
-            "observacao"
-        ).value.trim();
-
-    const respProva =
-        document.getElementById(
-            "responsavelProva"
-        ).value;
-
-    const respRelatorio =
-        document.getElementById(
-            "responsavelRelatorio"
-        ).value;
-
-
-    if(!qra){
-
-        alert(
-            "Digite o QRA antes de gerar o relatório."
-        );
-
-        return;
-    }
-
-
-    document.getElementById(
-        "rData"
-    ).innerText =
-        formatarData(data);
-
-
-    document.getElementById(
-        "rInicio"
-    ).innerText =
-        inicio || "--:--";
-
-
-    document.getElementById(
-        "rFim"
-    ).innerText =
-        fim || "--:--";
-
-
-    document.getElementById(
-        "rQra"
-    ).innerText =
-        qra;
-
-
-    document.getElementById(
-        "rObs"
-    ).innerText =
-        obs ||
-        "Nenhuma observação informada.";
-
-
-    document.getElementById(
-        "rResponsavelProva"
-    ).innerText =
-        respProva ||
-        "Não informado";
-
-
-    document.getElementById(
-        "rResponsavelRelatorio"
-    ).innerText =
-        respRelatorio ||
-        "Não informado";
-
-
-    const imagem =
-        document.getElementById(
-            "previewImagem"
-        );
-
-    const imagemRelatorio =
-        document.getElementById(
-            "imagemRelatorio"
-        );
-
-
-    if(
-        imagem.src &&
-        imagem.style.display !== "none"
-    ){
-
-        imagemRelatorio.src =
-            imagem.src;
-
-        document.getElementById(
-            "blocoImagem"
-        ).style.display =
-            "block";
-
-    }else{
-
-        document.getElementById(
-            "blocoImagem"
-        ).style.display =
-            "none";
-    }
-
-
-    if(audioURL){
-
-        document.getElementById(
-            "audioRelatorio"
-        ).src =
-            audioURL;
-
-        document.getElementById(
-            "blocoAudio"
-        ).style.display =
-            "block";
-
-    }else{
-
-        document.getElementById(
-            "blocoAudio"
-        ).style.display =
-            "none";
-    }
-
-
-    mostrar("relatorio");
-}
-
-
-/* =====================================================
-   FORMATAR DATA
-===================================================== */
-
-function formatarData(data){
-
-    if(!data){
-        return "";
-    }
-
-    const partes =
-        data.split("-");
-
-    return (
-        partes[2] + "/" +
-        partes[1] + "/" +
-        partes[0]
-    );
-}
-
-
-/* =====================================================
-   LIMPAR TUDO
-===================================================== */
-
-function limparTudo(){
-
-    deveReconhecer = false;
-
-    if(reconhecimento){
-
-        try{
-
-            reconhecimento.onend = null;
-            reconhecimento.stop();
-
-        }catch(e){}
-    }
-
-
-    if(
-        gravador &&
-        gravador.state !== "inactive"
-    ){
-
-        try{
-
-            gravador.stop();
-
-        }catch(e){}
-    }
-
-
-    document.getElementById("qra").value = "";
-    document.getElementById("inicio").value = "";
-    document.getElementById("fim").value = "";
-    document.getElementById("observacao").value = "";
-
-    document.getElementById(
-        "responsavelProva"
-    ).value = "";
-
-    document.getElementById(
-        "responsavelRelatorio"
-    ).value = "";
-
-    document.getElementById(
-        "imagem"
-    ).value = "";
-
-    document.getElementById(
-        "previewImagem"
-    ).src = "";
-
-    document.getElementById(
-        "previewImagem"
-    ).style.display =
-        "none";
-
-    document.getElementById(
-        "audioPlayer"
-    ).src = "";
-
-    document.getElementById(
-        "audioRelatorio"
-    ).src = "";
-
-    document.getElementById(
-        "statusAudio"
-    ).innerText =
-        "Pronto para gravar.";
-
-    document.getElementById(
-        "iaStatus"
-    ).style.display =
-        "none";
-
-    document.getElementById(
-        "permissaoMicrofone"
-    ).style.display =
-        "block";
-
-    document.getElementById(
-        "btnGravar"
-    ).disabled =
-        true;
-
-
-    partesAudio = [];
-
-    audioBlob = null;
-
-
-    if(audioURL){
-
-        URL.revokeObjectURL(
-            audioURL
-        );
-    }
-
-    audioURL = null;
-
-    microfonePermitido = false;
-
-    reconhecimento = null;
-
-    reconhecimentoAtivo = false;
-
-    textoTranscricaoFinal = "";
-
-    textoAntesDaTranscricao = "";
-
-
-    document.getElementById(
-        "data"
-    ).value =
-        ano + "-" + mes + "-" + dia;
-
-
-    mostrar("formulario");
-}
-
-
-/* =====================================================
-   VERIFICAR MICROFONE
-===================================================== */
-
-async function verificarMicrofone(){
-
-    if(
-        !navigator.mediaDevices ||
-        !navigator.mediaDevices.getUserMedia
-    ){
-
-        document.getElementById(
-            "statusAudio"
-        ).innerText =
-            "❌ Seu navegador não permite acesso ao microfone.";
-
-        return;
-    }
-
-    document.getElementById(
-        "statusAudio"
-    ).innerText =
-        "🔐 Autorize o microfone para começar.";
-}
-
-
-/* =====================================================
-   INICIAR APP
-===================================================== */
-
-verificarMicrofone();
-
-mostrar("ensino");
-
-</script>
-
-</body>
-</html>
-<script>
-
-/* =====================================================
-   VARIÁVEIS DO SISTEMA
-===================================================== */
-
-let gravador = null;
-let partesAudio = [];
-let audioURL = null;
-let audioBlob = null;
-
-let reconhecimento = null;
-let microfonePermitido = false;
-let deveReconhecer = false;
-
-let textoTranscricaoFinal = "";
-let textoAntesDaTranscricao = "";
-
-
-/* =====================================================
-   MOSTRAR SEÇÃO
-===================================================== */
-
-function mostrar(secao){
-
-    document.getElementById("ensino").style.display = "none";
-    document.getElementById("formulario").style.display = "none";
-    document.getElementById("relatorio").style.display = "none";
-
-    const elemento = document.getElementById(secao);
-
-    if(elemento){
-        elemento.style.display = "block";
-    }
-}
-
-
-/* =====================================================
-   DATA AUTOMÁTICA
-===================================================== */
-
-const hoje = new Date();
-
-const ano = hoje.getFullYear();
-
-const mes = String(
-    hoje.getMonth() + 1
-).padStart(2,"0");
-
-const dia = String(
-    hoje.getDate()
-).padStart(2,"0");
-
-document.getElementById("data").value =
-    ano + "-" + mes + "-" + dia;
-
-
-/* =====================================================
-   CARREGAR IMAGEM
-===================================================== */
-
-function carregarImagem(event){
-
-    const arquivo = event.target.files[0];
-
-    if(!arquivo){
-        return;
-    }
-
-    const leitor = new FileReader();
-
-    leitor.onload = function(e){
-
-        const img =
-            document.getElementById("previewImagem");
-
-        img.src = e.target.result;
-
-        img.style.display = "block";
     };
 
     leitor.readAsDataURL(arquivo);
@@ -2439,8 +1183,7 @@ async function pedirPermissaoMicrofone(){
 
         alert(
             "❌ Não foi possível acessar o microfone.\n\n" +
-            "Clique em Permitir quando o Chrome perguntar.\n\n" +
-            "Se você bloqueou anteriormente, abra as permissões do site e permita o microfone."
+            "Verifique a permissão do microfone no Chrome."
         );
     }
 }
@@ -2473,6 +1216,7 @@ async function iniciarGravacao(){
             });
 
         partesAudio = [];
+        audioBlob = null;
 
         let tipoAudio = "";
 
@@ -2497,55 +1241,25 @@ async function iniciarGravacao(){
                 "audio/webm";
         }
 
-        if(typeof MediaRecorder === "undefined"){
-
-            alert(
-                "Seu navegador não suporta gravação de áudio."
-            );
-
-            stream.getTracks().forEach(
-                track => track.stop()
-            );
-
-            return;
-        }
-
         gravador =
             tipoAudio
             ? new MediaRecorder(
                 stream,
-                {
-                    mimeType:tipoAudio
-                }
+                {mimeType:tipoAudio}
             )
             : new MediaRecorder(stream);
-
 
         gravador.ondataavailable =
             function(event){
 
-                if(event.data && event.data.size > 0){
+                if(event.data.size > 0){
 
-                    partesAudio.push(
-                        event.data
-                    );
+                    partesAudio.push(event.data);
                 }
             };
 
-
         gravador.onstop =
             function(){
-
-                if(partesAudio.length === 0){
-
-                    document.getElementById(
-                        "statusAudio"
-                    ).innerText =
-                        "❌ Nenhum áudio foi gravado.";
-
-                    return;
-                }
-
 
                 audioBlob =
                     new Blob(
@@ -2557,82 +1271,91 @@ async function iniciarGravacao(){
                         }
                     );
 
-
                 if(audioURL){
-
-                    URL.revokeObjectURL(
-                        audioURL
-                    );
+                    URL.revokeObjectURL(audioURL);
                 }
-
 
                 audioURL =
                     URL.createObjectURL(
                         audioBlob
                     );
 
-
                 document.getElementById(
                     "audioPlayer"
-                ).src =
-                    audioURL;
-
-
-                document.getElementById(
-                    "audioRelatorio"
-                ).src =
-                    audioURL;
-
+                ).src = audioURL;
 
                 document.getElementById(
                     "statusAudio"
                 ).innerText =
-                    "✅ Áudio gravado com sucesso!";
-
+                    "✅ Áudio gravado com sucesso! Agora clique em TRANSFORMAR ÁUDIO EM RELATÓRIO.";
 
                 document.getElementById(
                     "btnGravar"
-                ).disabled =
-                    false;
-
+                ).disabled = false;
 
                 stream.getTracks().forEach(
                     track => track.stop()
                 );
             };
 
-
         gravador.start();
-
 
         document.getElementById(
             "btnGravar"
         ).disabled = true;
-
 
         document.getElementById(
             "statusAudio"
         ).innerText =
             "🔴 GRAVANDO... Fale normalmente.";
 
-
         iniciarReconhecimento();
 
     }catch(erro){
 
-        console.error(
-            "Erro ao gravar:",
-            erro
-        );
+        console.error(erro);
 
         document.getElementById(
             "btnGravar"
         ).disabled = false;
 
+        document.getElementById(
+            "statusAudio"
+        ).innerText =
+            "❌ Não foi possível iniciar a gravação.";
+
         alert(
-            "❌ Erro ao iniciar a gravação.\n\n" +
-            "Verifique a permissão do microfone."
+            "❌ Erro ao acessar o microfone."
         );
+    }
+}
+
+
+/* =====================================================
+   SALVAR TRANSCRIÇÃO
+===================================================== */
+
+function salvarTranscricaoFinal(){
+
+    const campo =
+        document.getElementById("observacao");
+
+    const transcricao =
+        textoTranscricaoFinal.trim();
+
+    if(transcricao){
+
+        let textoFinal =
+            textoAntesDaTranscricao;
+
+        if(textoFinal){
+            textoFinal += " ";
+        }
+
+        textoFinal += transcricao;
+
+        campo.value =
+            textoFinal.trim();
     }
 }
 
@@ -2643,19 +1366,20 @@ async function iniciarGravacao(){
 
 function pararGravacao(){
 
+    salvarTranscricaoFinal();
+
     deveReconhecer = false;
+    reconhecimentoAtivo = false;
 
     if(reconhecimento){
 
         try{
 
             reconhecimento.onend = null;
-
             reconhecimento.stop();
 
         }catch(e){}
     }
-
 
     if(
         gravador &&
@@ -2663,12 +1387,9 @@ function pararGravacao(){
     ){
 
         try{
-
             gravador.stop();
-
         }catch(e){}
     }
-
 
     document.getElementById(
         "statusAudio"
@@ -2678,7 +1399,7 @@ function pararGravacao(){
 
 
 /* =====================================================
-   TRANSCRIÇÃO DO ÁUDIO
+   RECONHECIMENTO DE VOZ
 ===================================================== */
 
 function iniciarReconhecimento(){
@@ -2687,67 +1408,50 @@ function iniciarReconhecimento(){
         window.SpeechRecognition ||
         window.webkitSpeechRecognition;
 
-
     if(!SpeechRecognition){
 
-        document.getElementById(
-            "statusAudio"
-        ).innerText =
-            "🔴 Áudio gravando. A transcrição automática não está disponível neste navegador.";
+        console.warn(
+            "Reconhecimento de voz não disponível."
+        );
 
         return;
     }
 
-
     deveReconhecer = true;
+    reconhecimentoAtivo = false;
 
     const campo =
         document.getElementById("observacao");
 
-
     textoAntesDaTranscricao =
         campo.value.trim();
 
-
     textoTranscricaoFinal = "";
-
 
     reconhecimento =
         new SpeechRecognition();
 
-
-    reconhecimento.lang =
-        "pt-BR";
-
-
-    reconhecimento.continuous =
-        true;
-
-
-    reconhecimento.interimResults =
-        true;
-
-
-    reconhecimento.maxAlternatives =
-        1;
-
+    reconhecimento.lang = "pt-BR";
+    reconhecimento.continuous = true;
+    reconhecimento.interimResults = true;
+    reconhecimento.maxAlternatives = 1;
 
     reconhecimento.onstart =
         function(){
 
+            reconhecimentoAtivo = true;
+
             document.getElementById(
                 "statusAudio"
             ).innerText =
-                "🔴 GRAVANDO... 🎙️ Sua fala está sendo transformada em texto.";
+                "🔴 GRAVANDO... 🎙️ Pode falar.";
         };
-
 
     reconhecimento.onresult =
         function(event){
 
             let finais = "";
             let parcial = "";
-
 
             for(
                 let i = event.resultIndex;
@@ -2758,31 +1462,24 @@ function iniciarReconhecimento(){
                 const resultado =
                     event.results[i];
 
-
                 const texto =
                     resultado[0]
                     .transcript
                     .trim();
 
-
                 if(resultado.isFinal){
 
                     if(texto){
-
-                        finais +=
-                            texto + " ";
+                        finais += texto + " ";
                     }
 
                 }else{
 
                     if(texto){
-
-                        parcial +=
-                            texto + " ";
+                        parcial += texto + " ";
                     }
                 }
             }
-
 
             if(finais.trim()){
 
@@ -2790,10 +1487,8 @@ function iniciarReconhecimento(){
                     finais.trim() + " ";
             }
 
-
             let textoCompleto =
                 textoAntesDaTranscricao;
-
 
             if(textoTranscricaoFinal.trim()){
 
@@ -2805,7 +1500,6 @@ function iniciarReconhecimento(){
                     textoTranscricaoFinal.trim();
             }
 
-
             if(parcial.trim()){
 
                 if(textoCompleto){
@@ -2816,11 +1510,9 @@ function iniciarReconhecimento(){
                     parcial.trim();
             }
 
-
             campo.value =
                 textoCompleto.trim();
         };
-
 
     reconhecimento.onerror =
         function(event){
@@ -2830,25 +1522,16 @@ function iniciarReconhecimento(){
                 event.error
             );
 
-            if(
-                event.error === "not-allowed"
-            ){
-
-                document.getElementById(
-                    "statusAudio"
-                ).innerText =
-                    "⚠️ Permissão de reconhecimento negada. O áudio continua gravado.";
-            }
         };
-
 
     reconhecimento.onend =
         function(){
 
+            reconhecimentoAtivo = false;
+
             if(!deveReconhecer){
                 return;
             }
-
 
             if(
                 gravador &&
@@ -2858,7 +1541,11 @@ function iniciarReconhecimento(){
                 setTimeout(
                     function(){
 
-                        if(!deveReconhecer){
+                        if(
+                            !deveReconhecer ||
+                            !gravador ||
+                            gravador.state !== "recording"
+                        ){
                             return;
                         }
 
@@ -2872,120 +1559,202 @@ function iniciarReconhecimento(){
             }
         };
 
-
     try{
-
         reconhecimento.start();
-
     }catch(e){
-
         console.warn(e);
     }
 }
 
 
 /* =====================================================
-   IA — TRANSFORMAR TEXTO EM RELATÓRIO
+   TRANSFORMAR ÁUDIO EM RELATÓRIO
 ===================================================== */
 
-function gerarRelatorioIA(){
+async function gerarRelatorioIA(){
 
     const campo =
         document.getElementById("observacao");
 
-
-    let texto =
+    let observacao =
         campo.value.trim();
 
-
     /*
-       Se o reconhecimento ainda não colocou
-       o texto no campo, usamos a transcrição.
+       PRIMEIRO:
+       tenta usar o áudio gravado.
     */
 
-    if(
-        !texto &&
-        textoTranscricaoFinal.trim()
-    ){
+    if(!audioBlob){
 
-        texto =
-            textoTranscricaoFinal.trim();
+        /*
+           Se não existe áudio, tenta usar
+           a transcrição do navegador.
+        */
 
-        campo.value =
-            texto;
+        if(textoTranscricaoFinal.trim()){
+
+            observacao =
+                textoTranscricaoFinal.trim();
+
+            campo.value =
+                observacao;
+        }
     }
 
-
     /*
-       Se existe áudio, mas não existe texto,
-       não mostramos mais aquela frase falsa.
+       Se ainda não existe texto e não existe áudio,
+       mostra o aviso.
     */
 
-    if(
-        !texto &&
-        audioBlob
-    ){
+    if(!audioBlob && !observacao){
 
         alert(
-            "🎙️ O áudio foi gravado, mas não foi possível transformar a fala em texto automaticamente.\n\n" +
-            "Tente gravar novamente falando mais perto do microfone."
+            "🎙️ Primeiro grave um áudio ou escreva a descrição."
         );
 
         return;
     }
-
-
-    if(!texto){
-
-        alert(
-            "🎙️ Grave um áudio ou escreva a descrição da ocorrência."
-        );
-
-        return;
-    }
-
 
     const status =
         document.getElementById("iaStatus");
 
-
     const textoIA =
         document.getElementById("iaTexto");
 
-
-    status.style.display =
-        "block";
-
+    status.style.display = "block";
 
     textoIA.innerText =
-        "🤖 Organizando o texto da ocorrência...";
+        "🤖 Transformando o áudio em relatório...";
 
+    /*
+       SE EXISTE ÁUDIO:
+       envia o arquivo para a API.
+    */
 
-    setTimeout(
-        function(){
+    if(audioBlob){
+
+        try{
+
+            const formData =
+                new FormData();
+
+            formData.append(
+                "audio",
+                audioBlob,
+                "gravacao.webm"
+            );
+
+            const resposta =
+                await fetch(
+                    "/api/transformar-audio",
+                    {
+                        method:"POST",
+                        body:formData
+                    }
+                );
+
+            if(!resposta.ok){
+
+                throw new Error(
+                    "Servidor retornou erro " +
+                    resposta.status
+                );
+            }
+
+            const dados =
+                await resposta.json();
 
             /*
-               A IA local não inventa conteúdo.
-               Apenas organiza o que foi reconhecido.
+               Aceita diferentes nomes
+               que o backend possa retornar.
             */
 
-            const resultado =
-                organizarTexto(texto);
+            const texto =
+                dados.texto ||
+                dados.transcricao ||
+                dados.relatorio ||
+                dados.resultado ||
+                "";
 
+            if(!texto){
+
+                throw new Error(
+                    "A IA não retornou texto."
+                );
+            }
+
+            /*
+               Coloca somente o texto produzido
+               pela IA na OBSERVAÇÃO.
+            */
 
             campo.value =
-                resultado;
-
+                organizarTexto(texto);
 
             textoIA.innerText =
-                "✅ Relatório organizado com sucesso!";
+                "✅ Áudio transformado em relatório!";
 
+            /*
+               O áudio NÃO será colocado
+               no relatório final.
+            */
 
-            gerarRelatorio();
+            gerarRelatorio(false);
 
-        },
-        800
-    );
+            return;
+
+        }catch(erro){
+
+            console.error(
+                "Erro ao transformar áudio:",
+                erro
+            );
+
+            /*
+               Se a API não funcionar,
+               usamos a transcrição automática
+               do Chrome como alternativa.
+            */
+
+            if(textoTranscricaoFinal.trim()){
+
+                campo.value =
+                    organizarTexto(
+                        textoTranscricaoFinal
+                    );
+
+                textoIA.innerText =
+                    "✅ Relatório criado usando a transcrição do áudio.";
+
+                gerarRelatorio(false);
+
+                return;
+            }
+
+            textoIA.innerText =
+                "❌ Não foi possível transformar o áudio.";
+
+            alert(
+                "❌ Não foi possível transformar o áudio.\n\n" +
+                "O áudio foi gravado, mas a API da IA não respondeu."
+            );
+
+            return;
+        }
+    }
+
+    /*
+       CASO O USUÁRIO TENHA ESCRITO TEXTO:
+       organiza o texto normalmente.
+    */
+
+    campo.value =
+        organizarTexto(observacao);
+
+    textoIA.innerText =
+        "✅ Relatório organizado com sucesso!";
+
+    gerarRelatorio(false);
 }
 
 
@@ -2998,16 +1767,13 @@ function organizarTexto(texto){
     texto =
         texto.trim();
 
-
     if(!texto){
         return "";
     }
 
-
     let resultado =
         texto.charAt(0).toUpperCase() +
         texto.slice(1);
-
 
     if(
         !resultado.endsWith(".") &&
@@ -3018,18 +1784,16 @@ function organizarTexto(texto){
         resultado += ".";
     }
 
-
     /*
-       IMPORTANTE:
-       Não adicionamos mais:
+       NÃO coloca mais:
        "Durante a realização da prova..."
+       
+       A IA deve usar somente o conteúdo
+       que foi falado.
     */
 
     return resultado;
-}
-
-
-/* =====================================================
+}/* =====================================================
    GERAR RELATÓRIO
 ===================================================== */
 
@@ -3038,33 +1802,23 @@ function gerarRelatorio(){
     const data =
         document.getElementById("data").value;
 
-
     const inicio =
         document.getElementById("inicio").value;
-
 
     const fim =
         document.getElementById("fim").value;
 
-
     const qra =
         document.getElementById("qra").value.trim();
-
 
     const obs =
         document.getElementById("observacao").value.trim();
 
-
     const respProva =
-        document.getElementById(
-            "responsavelProva"
-        ).value.trim();
-
+        document.getElementById("responsavelProva").value.trim();
 
     const respRelatorio =
-        document.getElementById(
-            "responsavelRelatorio"
-        ).value.trim();
+        document.getElementById("responsavelRelatorio").value.trim();
 
 
     if(!qra){
@@ -3077,49 +1831,26 @@ function gerarRelatorio(){
     }
 
 
-    document.getElementById(
-        "rData"
-    ).innerText =
+    document.getElementById("rData").innerText =
         formatarData(data);
 
-
-    document.getElementById(
-        "rInicio"
-    ).innerText =
+    document.getElementById("rInicio").innerText =
         inicio || "--:--";
 
-
-    document.getElementById(
-        "rFim"
-    ).innerText =
+    document.getElementById("rFim").innerText =
         fim || "--:--";
 
-
-    document.getElementById(
-        "rQra"
-    ).innerText =
+    document.getElementById("rQra").innerText =
         qra;
 
+    document.getElementById("rObs").innerText =
+        obs || "Nenhuma observação informada.";
 
-    document.getElementById(
-        "rObs"
-    ).innerText =
-        obs ||
-        "Nenhuma observação informada.";
+    document.getElementById("rResponsavelProva").innerText =
+        respProva || "Não informado";
 
-
-    document.getElementById(
-        "rResponsavelProva"
-    ).innerText =
-        respProva ||
-        "Não informado";
-
-
-    document.getElementById(
-        "rResponsavelRelatorio"
-    ).innerText =
-        respRelatorio ||
-        "Não informado";
+    document.getElementById("rResponsavelRelatorio").innerText =
+        respRelatorio || "Não informado";
 
 
     /* =========================
@@ -3127,16 +1858,10 @@ function gerarRelatorio(){
     ========================= */
 
     const imagem =
-        document.getElementById(
-            "previewImagem"
-        );
-
+        document.getElementById("previewImagem");
 
     const imagemRelatorio =
-        document.getElementById(
-            "imagemRelatorio"
-        );
-
+        document.getElementById("imagemRelatorio");
 
     if(
         imagem.src &&
@@ -3146,45 +1871,34 @@ function gerarRelatorio(){
         imagemRelatorio.src =
             imagem.src;
 
-
         document.getElementById(
             "blocoImagem"
-        ).style.display =
-            "block";
+        ).style.display = "block";
 
     }else{
 
         document.getElementById(
             "blocoImagem"
-        ).style.display =
-            "none";
+        ).style.display = "none";
     }
 
 
-    /* =========================
-       ÁUDIO
-    ========================= */
+    /*
+       IMPORTANTE:
+       O ÁUDIO NÃO É COLOCADO NO RELATÓRIO.
 
-    if(audioBlob && audioURL){
+       Ele foi usado apenas para a IA
+       transformar a fala em texto.
+    */
 
-        document.getElementById(
-            "audioRelatorio"
-        ).src =
-            audioURL;
+    document.getElementById(
+        "blocoAudio"
+    ).style.display = "none";
 
 
-        document.getElementById(
-            "blocoAudio"
-        ).style.display =
-            "block";
-
-    }else{
-
-        document.getElementById(
-            "blocoAudio"
-        ).style.display =
-            "none";
-    }
+    document.getElementById(
+        "audioRelatorio"
+    ).removeAttribute("src");
 
 
     mostrar("relatorio");
@@ -3201,15 +1915,12 @@ function formatarData(data){
         return "";
     }
 
-
     const partes =
         data.split("-");
-
 
     if(partes.length !== 3){
         return data;
     }
-
 
     return (
         partes[2] + "/" +
@@ -3233,7 +1944,6 @@ function limparTudo(){
         try{
 
             reconhecimento.onend = null;
-
             reconhecimento.stop();
 
         }catch(e){}
@@ -3246,7 +1956,9 @@ function limparTudo(){
     ){
 
         try{
+
             gravador.stop();
+
         }catch(e){}
     }
 
@@ -3267,7 +1979,8 @@ function limparTudo(){
 
     document.getElementById("previewImagem").src = "";
 
-    document.getElementById("previewImagem").style.display = "none";
+    document.getElementById("previewImagem").style.display =
+        "none";
 
     document.getElementById("audioPlayer").src = "";
 
@@ -3288,9 +2001,7 @@ function limparTudo(){
 
     if(audioURL){
 
-        URL.revokeObjectURL(
-            audioURL
-        );
+        URL.revokeObjectURL(audioURL);
     }
 
 
@@ -3349,7 +2060,7 @@ async function verificarMicrofone(){
 
 
 /* =====================================================
-   INICIAR SISTEMA
+   INICIAR APLICATIVO
 ===================================================== */
 
 verificarMicrofone();
